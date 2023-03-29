@@ -4,11 +4,13 @@ import "./Account.sol";
 import "./Event.sol";
 import "./Ticket.sol";
 import "./EventToken.sol";
+import "./Auction.sol";
 
 contract Platform {
     Account accountContract;
     EventToken eventTokenContract;
     Event eventContract;
+    Auction auctionContract;
 
     event BidCommenced (uint256 eventId);
     event BidPlaced (uint256 eventId, address buyer, uint256 tokenBid);
@@ -18,10 +20,11 @@ contract Platform {
     mapping(address => uint256) sellerDepositedValue;
 
     // Platform can only exist if other contracts are created first
-    constructor(Account accountAddr, EventToken eventTokenAddr, Event eventAddr) public {
+    constructor(Account accountAddr, EventToken eventTokenAddr, Event eventAddr, Auction auctionAddr) public {
         accountContract = accountAddr;
         eventTokenContract = eventTokenAddr;
         eventContract = eventAddr;
+        auctionContract = auctionAddr;
     }
 
     struct bidInfo {
@@ -43,7 +46,7 @@ contract Platform {
 
     /*Ensure caller is a verified seller*/
     modifier isOrganiser() {
-        require(accountContract.viewAccountState(msg.sender) == accountContract.getVerifiedStatus(),"You are not a verified seller");
+        require(accountContract.viewAccountState(msg.sender) == accountContract.getVerifiedStatus(), "You are not a verified seller");
         _;
     }
 
@@ -132,7 +135,12 @@ contract Platform {
         // returnBiddings()
         eventContract.setEventBidState(eventId, Event.bidState.close);
         emit BidClosed(eventId);
-    }   
+    }
+
+    function updateBidding(uint256 eventId, uint8 quantity, uint256 tokenBid) public payable isBuyer() {
+
+    }
+
 
     // Return unsuccessful bidders their corresponding ETH and tokens
     function returnBiddings() public {

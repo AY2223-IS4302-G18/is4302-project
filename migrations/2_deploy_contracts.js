@@ -3,9 +3,10 @@ const Ticket = artifacts.require("Ticket");
 const EventToken = artifacts.require("EventToken");
 const Account = artifacts.require("Account");
 const Platform = artifacts.require("Platform");
+const Auction = artifacts.require("Auction");
 
-module.exports = (deployer, network, account) => {
-    deployer.deploy(EventToken)
+module.exports = async (deployer, network, account) => {
+    await deployer.deploy(EventToken)
     .then(function () {
         return deployer.deploy(Ticket)
     }).then(function () {
@@ -15,6 +16,12 @@ module.exports = (deployer, network, account) => {
         return deployer.deploy(Account)
     })
     .then(function () {
-        return deployer.deploy(Platform, Account.address, EventToken.address, Event.address)
+        return deployer.deploy(Auction)
+    })
+    .then(function () {
+        return deployer.deploy(Platform, Account.address, EventToken.address, Event.address, Auction.address)
     });
+
+    auctionInstance = await Auction.deployed();
+    await auctionInstance.setPlatformAddress(Platform.address);
 };
