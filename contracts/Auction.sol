@@ -13,6 +13,7 @@ contract Auction {
         uint256 maxTickets;
         Bidder[] bidders;
         mapping(address => uint256) bidderList;
+        mapping(address => uint8) ticketCount;
     }
 
     mapping(uint256 => Bidding) private biddings;
@@ -32,18 +33,41 @@ contract Auction {
         Bidding storage newBidding = biddings[_eventId];
         newBidding.maxTickets = _maxTickets;
     }
-    // , uint256 _qty
-    function placeBid(uint256 _eventId, address _userAddr, uint256 _bid) public {
+
+    function placeBid(uint256 _eventId, address _userAddr, uint256 _bid, uint8 _qty) public {
         Bidding storage currentBidding = biddings[_eventId];
 
-        if (currentBidding.bidderList[_userAddr] > 0) {
-            // User already bid on event
-
-        } else {
-            // Add new user
+        for (uint8 i = 0; i < _qty; i++){
             currentBidding.bidders.push(Bidder(_userAddr, _bid));
             insertBidder(currentBidding);
         }
+        
+        currentBidding.ticketCount[_userAddr] = _qty;
+
+        while (currentBidding.bidders.length > currentBidding.maxTickets) {
+            removeMinimum(currentBidding);
+        }
+    }
+
+    function updateBid(uint256 _eventId, address _userAddr, uint256 _bid, uint8 _qty) public {
+        Bidding storage currentBidding = biddings[_eventId];
+        uint8 userTicketCount = currentBidding.ticketCount[_userAddr];
+
+        if (userTicketCount > 0) {
+           for (uint8 i = 0; i <= currentBidding.bidders.length; i++){
+                if (currentBidding.bidders[i].id == _userAddr) {
+                    currentBidding.bidders[i].bid = _bid;
+                    minHeapify(currentBidding, i);
+                }
+            } 
+        }
+
+        for (uint8 i = userTicketCount; i <= _qty; i++){
+            currentBidding.bidders.push(Bidder(_userAddr, _bid));
+            insertBidder(currentBidding);
+        }
+        
+        currentBidding.ticketCount[_userAddr] = _qty;
 
         while (currentBidding.bidders.length > currentBidding.maxTickets) {
             removeMinimum(currentBidding);
@@ -83,6 +107,7 @@ contract Auction {
 
         Bidder memory lastElement = _bidding.bidders[n-1];
         _bidding.bidders.pop();
+        _bidding.ticketCount[_bidding.bidders[0].id]--;
         _bidding.bidders[0] = lastElement;
         minHeapify(_bidding, 0);
     }
