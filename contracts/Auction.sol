@@ -54,15 +54,15 @@ contract Auction {
         uint8 userTicketCount = currentBidding.ticketCount[_userAddr];
 
         if (userTicketCount > 0) {
-           for (uint8 i = 0; i <= currentBidding.bidders.length; i++){
+           for (uint8 i = 0; i < currentBidding.bidders.length; i++){
                 if (currentBidding.bidders[i].id == _userAddr) {
                     currentBidding.bidders[i].bid = _bid;
                     minHeapify(currentBidding, i);
                 }
-            } 
+            }
         }
 
-        for (uint8 i = userTicketCount; i <= _qty; i++){
+        for (uint8 i = userTicketCount; i < _qty; i++){
             currentBidding.bidders.push(Bidder(_userAddr, _bid));
             insertBidder(currentBidding);
         }
@@ -79,12 +79,15 @@ contract Auction {
     // }
 
     // TEST FUNCTION
-    // event bidVal(uint256 _bid);
-    // function getBidders(uint256 _eventId, uint256 idx) public {
-    //     Bidding storage currentBidding = biddings[_eventId];
-    //     uint256 val = currentBidding.bidders[idx].bid;
-    //     emit bidVal(val);
-    // }
+    event bidVal(address _id, uint256 _bid);
+    function getBidders(uint256 _eventId) public {
+        Bidding storage currentBidding = biddings[_eventId];
+        uint256 n = currentBidding.bidders.length;
+
+        for (uint256 i = 0; i < n; i++){
+            emit bidVal(currentBidding.bidders[i].id, currentBidding.bidders[i].bid);
+        }
+    }
 
     function insertBidder(Bidding storage _bidding) private {
         uint256 n = _bidding.bidders.length;
