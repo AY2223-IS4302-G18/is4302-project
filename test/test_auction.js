@@ -14,4 +14,5 @@ contract("Auction", function (accounts) {
     it("Platform address change", async () => {
         await truffleAssert.reverts(auctionInstance.setPlatformAddress(auctionInstance.address));        
     });
+
 })

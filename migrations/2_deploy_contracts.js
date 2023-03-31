@@ -16,7 +16,7 @@ module.exports = async (deployer, network, account) => {
         return deployer.deploy(Account)
     })
     .then(function () {
-        return deployer.deploy(Auction, Ticket.address)
+        return deployer.deploy(Auction, Event.address)
     })
     .then(function () {
         return deployer.deploy(Platform, Account.address, EventToken.address, Event.address, Ticket.address, Auction.address)
@@ -24,4 +24,9 @@ module.exports = async (deployer, network, account) => {
 
     auctionInstance = await Auction.deployed();
     await auctionInstance.setPlatformAddress(Platform.address);
+    
+    ticketInstance = await Ticket.deployed();
+    await ticketInstance.setAuctionAddress(Auction.address);
+    await ticketInstance.setPlatformAddress(Platform.address);
+    await ticketInstance.setEventAddress(Event.address);
 };

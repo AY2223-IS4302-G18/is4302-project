@@ -19,10 +19,12 @@ contract Event {
         uint256 dateAndTime;
         uint256 capacity;
         uint256 ticketsLeft;
+        uint256 nxtTicket;
         uint256 priceOfTicket;
         address seller;
         bidState state;
         uint256 firstTicketId;
+        uint256[] returnedTickets;
     }
 
     uint256 public numEvents = 0;
@@ -45,10 +47,12 @@ contract Event {
             DateTime.timestampFromDateTime(year, month, day, hour, minute, second),
             capacity,
             ticketsLeft,
+            0,
             priceOfTicket,
             seller,
             bidState.close,
-            0
+            0,
+            new uint256[](0)
         );
 
         uint256 newEventId = numEvents++;
@@ -73,15 +77,44 @@ contract Event {
 
     function generateEventTickets(address owner, uint256 eventId, uint256 price, Ticket.category cat, uint256 numOfTickets) public validEventId(eventId) returns (uint256) {
         uint256 firstTicketId;
-        for (uint256 i = 0; i < numOfTickets; i++) {
-            if (i == 0) {
-                firstTicketId = ticketContract.add(owner, eventId, price, cat, i);
-            } else {
-                ticketContract.add(owner, eventId, price, cat, i);
-            }
+
+        firstTicketId = ticketContract.add(owner, eventId, price, cat, 0);
+        for (uint256 i = 1; i < numOfTickets; i++) {
+            ticketContract.add(owner, eventId, price, cat, i);
         }
+
+        events[eventId].ticketsLeft = numOfTickets;
+        events[eventId].nxtTicket = firstTicketId;
+
         return firstTicketId;
     } 
+
+    function grantTicket(uint256 _eventId, address _grantTo) external returns (uint256) {
+        require(events[_eventId].ticketsLeft > 0, "Insufficient tickets to grant");
+
+        uint256 tktId;
+        uint256 nReturned = events[_eventId].returnedTickets.length;
+
+        if (nReturned == 0) {
+            tktId = events[_eventId].nxtTicket;
+            events[_eventId].nxtTicket++;
+        } else {
+            tktId = events[_eventId].returnedTickets[nReturned-1];
+            events[_eventId].returnedTickets.pop();
+        }
+        ticketContract.transferTicket(tktId, _grantTo);
+        events[_eventId].ticketsLeft--;
+        return tktId;
+    }
+
+    function returnTicket(uint256 _tktId) external {
+        require(ticketContract.getTicketOwner(_tktId) != msg.sender, "Ticket already returned");
+        uint256 eventId = ticketContract.getTicketEvent(_tktId);
+        
+        ticketContract.transferTicket(events[eventId].nxtTicket, msg.sender);
+        events[eventId].returnedTickets.push(_tktId);
+        events[eventId].ticketsLeft++;
+    }
 
     function getEventTitle(uint256 eventId) public view validEventId(eventId) returns (string memory) {
         return events[eventId].title;

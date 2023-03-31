@@ -1,14 +1,14 @@
 pragma solidity ^0.5.0;
 
-import "./Ticket.sol";
+import "./Event.sol";
 
 contract Auction {
 
     address platformContract;
-    Ticket ticketContract;
+    Event eventContract;
 
-    constructor(Ticket ticketAddress) public {
-        ticketContract = ticketAddress;
+    constructor(Event eventAddress) public {
+        eventContract = eventAddress;
     }
 
     struct Bidder {
@@ -18,6 +18,7 @@ contract Auction {
 
     struct Bidding {
         uint256 maxTickets;
+        uint256 nBidders;
         Bidder[] bidders;
         mapping(address => uint256) bidderList;
         mapping(address => uint8) ticketCount;
@@ -53,6 +54,7 @@ contract Auction {
     function createBidding(uint256 _eventId, uint256 _maxTickets) external {
         Bidding storage newBidding = biddings[_eventId];
         newBidding.maxTickets = _maxTickets;
+        newBidding.nBidders = 0;
         biddingOpen[_eventId] = true;
     }
 
@@ -63,6 +65,7 @@ contract Auction {
         for (uint8 i = 0; i < _qty; i++){
             currentBidding.bidders.push(Bidder(_userAddr, _bid));
             insertBidder(currentBidding);
+            currentBidding.nBidders++;
         }
         
         currentBidding.initialCount[_userAddr] = _qty;
@@ -71,6 +74,7 @@ contract Auction {
 
         while (currentBidding.bidders.length > currentBidding.maxTickets) {
             removeMinimum(currentBidding);
+            currentBidding.nBidders--;
         }
     }
 
@@ -93,6 +97,7 @@ contract Auction {
         for (uint8 i = userTicketCount; i < _qty; i++){
             currentBidding.bidders.push(Bidder(_userAddr, _bid));
             insertBidder(currentBidding);
+            currentBidding.nBidders++;
         }
         
         currentBidding.ticketCount[_userAddr] = _qty;
@@ -100,19 +105,19 @@ contract Auction {
 
         while (currentBidding.bidders.length > currentBidding.maxTickets) {
             removeMinimum(currentBidding);
+            currentBidding.nBidders--;
         }
     }
 
     function closeAuction(uint256 _eventId) isPlatform() external {
-        biddingOpen[_eventId] = true;
+        biddingOpen[_eventId] = false;
     }
 
     function grantTickets(uint256 _eventId) isPlatform() isClosed(_eventId) external {
         Bidding storage currentBidding = biddings[_eventId];
-        uint256 n = currentBidding.bidders.length;
 
-        for (uint256 i = 0; i < n; i++){
-            ticketContract.grantTicket(_eventId, currentBidding.bidders[i].id);
+        for (uint256 i = 0; i < currentBidding.nBidders; i++){
+            eventContract.grantTicket(_eventId, currentBidding.bidders[i].id);
         }
     }
 

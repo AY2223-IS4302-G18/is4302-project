@@ -91,7 +91,7 @@ contract Platform {
         auctionContract.placeBid(eventId, msg.sender, tokenBid, quantity);
 
         emit BidPlaced(eventId, msg.sender, tokenBid);
-        msg.sender.transfer(msg.value - (eventContract.getEventTicketPrice(eventId) * quantity)); // transfer remaining back to buyer
+        msg.sender.transfer(msg.value - ethCost); // transfer remaining back to buyer
     }
 
     // Close bidding and transfer tickets to top bidders
@@ -99,25 +99,24 @@ contract Platform {
         require(msg.sender == eventContract.getEventSeller(eventId), "Only seller can close bidding");
         require(eventContract.getEventBidState(eventId) == Event.bidState.open, "Event not open for bidding");
 
-        eventContract.setEventBidState(eventId, Event.bidState.close);
         auctionContract.closeAuction(eventId);
         auctionContract.grantTickets(eventId);
         returnBiddings(eventId);
 
-        // TODO: Return unsuccessful bidders
-        emit BidClosed(eventId);
+        eventContract.setEventBidState(eventId, Event.bidState.buy);
+        emit BidBuy(eventId);
     }
 
     function updateBidding(uint256 eventId, uint8 quantity, uint256 tokenBid) public payable isBuyer() {
         auctionContract.updateBid(eventId, msg.sender, tokenBid, quantity);
     }
 
-
     // Return unsuccessful bidders their corresponding ETH and tokens
     function returnBiddings(uint256 _eventId) private {
         for (uint256 i = 0; i < eventBidders.length; i++) {
             uint256 returnTik = auctionContract.getFailedBids(_eventId, eventBidders[i]);
             if (returnTik > 0) {
+                // returnEth(address(uint168(eventBidders[i])), eventContract.getEventTicketPrice(_eventId)*returnTik);
                 returnEth(eventBidders[i], eventContract.getEventTicketPrice(_eventId)*returnTik);
             }
         }
@@ -140,19 +139,19 @@ contract Platform {
         require(msg.value >= totalPrice, "Buyer has insufficient ETH to buy tickets");
 
         // Transfer ticket
-        uint256 firstTicketId = eventContract.getEventFirstTicketId(eventId);
-        uint256 lastTicketId = firstTicketId + eventContract.getEventCapacity(eventId) - 1;
-
-        for (lastTicketId; lastTicketId >= firstTicketId; lastTicketId--) {
-            if (ticketContract.getTicketOwner(lastTicketId) == address(this)) {
-                ticketContract.transferTicket(lastTicketId, msg.sender);
-                quantity--;
-                if (quantity == 0) break;
-            }
+        for (uint256 i = 0; i < quantity; i++) {
+            eventContract.grantTicket(eventId, msg.sender);
         }
 
         msg.sender.transfer(msg.value - totalPrice); // transfer remaining back to buyer
         emit TransferToBuyerSuccessful(msg.sender, msg.value - totalPrice);
+    }
+
+    function refundTicket(uint256 ticketId) public payable isBuyer() {
+        // Return money
+        uint256 toReturn = eventContract.getEventTicketPrice(ticketId); 
+        eventContract.returnTicket(ticketId);
+        returnEth(msg.sender, toReturn);
     }
 
     function endEvent(uint256 eventId) public isOrganiser() {
