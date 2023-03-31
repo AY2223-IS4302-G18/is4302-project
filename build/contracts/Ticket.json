@@ -1,0 +1,4329 @@
+{
+  "contractName": "Ticket",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "numTickets",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "tickets",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum Ticket.category",
+          "name": "cat",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "seatid",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum Ticket.category",
+          "name": "cat",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "seatid",
+          "type": "uint256"
+        }
+      ],
+      "name": "add",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "ticketId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTicketEvent",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "ticketId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTicketPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "ticketId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTicketCat",
+      "outputs": [
+        {
+          "internalType": "enum Ticket.category",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "ticketId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTicketSeat",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.17+commit.d19bba13\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"eventId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"enum Ticket.category\",\"name\":\"cat\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"seatid\",\"type\":\"uint256\"}],\"name\":\"add\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ticketId\",\"type\":\"uint256\"}],\"name\":\"getTicketCat\",\"outputs\":[{\"internalType\":\"enum Ticket.category\",\"name\":\"\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ticketId\",\"type\":\"uint256\"}],\"name\":\"getTicketEvent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ticketId\",\"type\":\"uint256\"}],\"name\":\"getTicketPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ticketId\",\"type\":\"uint256\"}],\"name\":\"getTicketSeat\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"numTickets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"tickets\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"eventId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"enum Ticket.category\",\"name\":\"cat\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"seatid\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{\"add(uint256,uint256,uint8,uint256)\":{\"notice\":\"creates a ticket and adds it to the ticket list      * param eventId   id of the event the ticket belongs to param price     Price of ticket in tokens param cat       category of ticket  param seatid    assigned seat/zone return uint256  id of ticket that was created\"},\"getTicketCat(uint256)\":{\"notice\":\"gets the category of the ticket      * param ticketID ID of ticket to query return category category of the ticket\"},\"getTicketEvent(uint256)\":{\"notice\":\"gets the eventId of the event that the ticket is for      * param ticketID ID of ticket to query return eventId of ticket \"},\"getTicketPrice(uint256)\":{\"notice\":\"gets the price of the ticket      * param ticketID ID of ticket to query return uint256 price of ticket\"},\"getTicketSeat(uint256)\":{\"notice\":\"gets the ticket seat      * param ticketID ID of ticket to query return uint256 seatid of ticket\"}}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Ticket.sol\":\"Ticket\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Ticket.sol\":{\"keccak256\":\"0x87a511251c87a1fa50bce0766cb290d81af4b21ef4139a95250978e86e544436\",\"urls\":[\"bzz-raw://03c20ffe836b7180ce739b7f0c22f643f30894d1d15dbf75cc47ea62bc73c6c5\",\"dweb:/ipfs/QmV3dCWjE2kbmFWP9Ye9w7V7eRsQ3XzrgGPkqJ8G3RM5fU\"]}},\"version\":1}",
+  "bytecode": "0x60806040526000805534801561001457600080fd5b50610600806100246000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c8063959bc48d1161005b578063959bc48d1461017a578063a433cbbc146101ca578063b48630c21461020c578063f06fc9611461026f5761007d565b80632b6fed0514610082578063353d90ec146100c457806350b44712146100e2575b600080fd5b6100ae6004803603602081101561009857600080fd5b81019080803590602001909291905050506102b1565b6040518082815260200191505060405180910390f35b6100cc6102e1565b6040518082815260200191505060405180910390f35b61010e600480360360208110156100f857600080fd5b81019080803590602001909291905050506102e7565b604051808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200185815260200184815260200183600281111561015c57fe5b60ff1681526020018281526020019550505050505060405180910390f35b6101a66004803603602081101561019057600080fd5b810190808035906020019092919050505061034a565b604051808260028111156101b657fe5b60ff16815260200191505060405180910390f35b6101f6600480360360208110156101e057600080fd5b8101908080359060200190929190505050610387565b6040518082815260200191505060405180910390f35b6102596004803603608081101561022257600080fd5b810190808035906020019092919080359060200190929190803560ff169060200190929190803590602001909291905050506103b7565b6040518082815260200191505060405180910390f35b61029b6004803603602081101561028557600080fd5b8101908080359060200190929190505050610529565b6040518082815260200191505060405180910390f35b60008160005481106102c257600080fd5b6001600084815260200190815260200160002060040154915050919050565b60005481565b60016020528060005260406000206000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030160009054906101000a900460ff16908060040154905085565b600081600054811061035b57600080fd5b6001600084815260200190815260200160002060030160009054906101000a900460ff16915050919050565b600081600054811061039857600080fd5b6001600084815260200190815260200160002060010154915050919050565b6000808411610411576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001806105aa6022913960400191505060405180910390fd5b610419610559565b6040518060a001604052803373ffffffffffffffffffffffffffffffffffffffff16815260200187815260200186815260200185600281111561045857fe5b81526020018481525090506000806000815480929190600101919050559050816001600083815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101556040820151816002015560608201518160030160006101000a81548160ff0219169083600281111561050a57fe5b0217905550608082015181600401559050508092505050949350505050565b600081600054811061053a57600080fd5b6001600084815260200190815260200160002060020154915050919050565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600081526020016000600281111561059c57fe5b815260200160008152509056fe5469636b65742070726963652063616e6e6f74206265206c657373207468656e2030a265627a7a7231582021d6e039174b1a547f12ce60a7551aeb2a548528a6bf161c4816a1cf8c5b152464736f6c63430005110032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061007d5760003560e01c8063959bc48d1161005b578063959bc48d1461017a578063a433cbbc146101ca578063b48630c21461020c578063f06fc9611461026f5761007d565b80632b6fed0514610082578063353d90ec146100c457806350b44712146100e2575b600080fd5b6100ae6004803603602081101561009857600080fd5b81019080803590602001909291905050506102b1565b6040518082815260200191505060405180910390f35b6100cc6102e1565b6040518082815260200191505060405180910390f35b61010e600480360360208110156100f857600080fd5b81019080803590602001909291905050506102e7565b604051808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200185815260200184815260200183600281111561015c57fe5b60ff1681526020018281526020019550505050505060405180910390f35b6101a66004803603602081101561019057600080fd5b810190808035906020019092919050505061034a565b604051808260028111156101b657fe5b60ff16815260200191505060405180910390f35b6101f6600480360360208110156101e057600080fd5b8101908080359060200190929190505050610387565b6040518082815260200191505060405180910390f35b6102596004803603608081101561022257600080fd5b810190808035906020019092919080359060200190929190803560ff169060200190929190803590602001909291905050506103b7565b6040518082815260200191505060405180910390f35b61029b6004803603602081101561028557600080fd5b8101908080359060200190929190505050610529565b6040518082815260200191505060405180910390f35b60008160005481106102c257600080fd5b6001600084815260200190815260200160002060040154915050919050565b60005481565b60016020528060005260406000206000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030160009054906101000a900460ff16908060040154905085565b600081600054811061035b57600080fd5b6001600084815260200190815260200160002060030160009054906101000a900460ff16915050919050565b600081600054811061039857600080fd5b6001600084815260200190815260200160002060010154915050919050565b6000808411610411576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260228152602001806105aa6022913960400191505060405180910390fd5b610419610559565b6040518060a001604052803373ffffffffffffffffffffffffffffffffffffffff16815260200187815260200186815260200185600281111561045857fe5b81526020018481525090506000806000815480929190600101919050559050816001600083815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550602082015181600101556040820151816002015560608201518160030160006101000a81548160ff0219169083600281111561050a57fe5b0217905550608082015181600401559050508092505050949350505050565b600081600054811061053a57600080fd5b6001600084815260200190815260200160002060020154915050919050565b6040518060a00160405280600073ffffffffffffffffffffffffffffffffffffffff16815260200160008152602001600081526020016000600281111561059c57fe5b815260200160008152509056fe5469636b65742070726963652063616e6e6f74206265206c657373207468656e2030a265627a7a7231582021d6e039174b1a547f12ce60a7551aeb2a548528a6bf161c4816a1cf8c5b152464736f6c63430005110032",
+  "sourceMap": "27:3414:9:-;;;775:1;747:29;;27:3414;8:9:-1;5:2;;;30:1;27;20:12;5:2;27:3414:9;;;;;;;",
+  "deployedSourceMap": "27:3414:9:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;27:3414:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3287:145;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;3287:145:9;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;747:29;;;:::i;:::-;;;;;;;;;;;;;;;;;;;811:41;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;811:41:9;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2997:142;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2997:142:9;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2384:147;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2384:147:9;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1563:647;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;1563:647:9;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2686:145;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;2686:145:9;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;3287;3373:7;3354:8;1189:10;;1178:8;:21;1170:30;;;;;;3400:7;:17;3408:8;3400:17;;;;;;;;;;;:24;;;3393:31;;3287:145;;;;:::o;747:29::-;;;;:::o;811:41::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;2997:142::-;3082:8;3063;1189:10;;1178:8;:21;1170:30;;;;;;3110:7;:17;3118:8;3110:17;;;;;;;;;;;:21;;;;;;;;;;;;3103:28;;2997:142;;;;:::o;2384:147::-;2471:7;2452:8;1189:10;;1178:8;:21;1170:30;;;;;;2498:7;:17;2506:8;2498:17;;;;;;;;;;;:25;;;2491:32;;2384:147;;;;:::o;1563:647::-;1654:7;1690:1;1682:5;:9;1674:56;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1840:23;;:::i;:::-;1866:215;;;;;;;;1873:10;1866:215;;;;;;1927:7;1866:215;;;;1978:5;1866:215;;;;2027:3;1866:215;;;;;;;;;;;;2074:6;1866:215;;;1840:241;;2094:19;2116:10;;:12;;;;;;;;;;;;2094:34;;2162:9;2139:7;:20;2147:11;2139:20;;;;;;;;;;;:32;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2191:11;2184:18;;;;1563:647;;;;;;:::o;2686:145::-;2773:7;2754:8;1189:10;;1178:8;:21;1170:30;;;;;;2800:7;:17;2808:8;2800:17;;;;;;;;;;;:23;;;2793:30;;2686:145;;;;:::o;27:3414::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\ncontract Ticket {\r\n\r\n    /**\r\n     * enum containing 'seating' categories\r\n     * floor:       general standing zone(s)\r\n     * standard:    standard seating zone(s)\r\n     * vip:         premium seating zone(s)\r\n     */\r\n    enum category {floor, standard, vip}\r\n\r\n    /**\r\n     * param owner     address of the owner of the ticket\r\n     * param eventId   id of the event the ticket belongs to\r\n     * param price     Price of ticket in tokens\r\n     * param cat       category of ticket \r\n     * param seatid    assigned seat/zone \r\n     */\r\n    struct ticket {\r\n        address owner;\r\n        uint256 eventId; // event is a keyword\r\n        uint256 price;\r\n        category cat;\r\n        uint256 seatid;\r\n    }\r\n\r\n    uint256 public numTickets = 0;  // Total number of tickets\r\n    mapping(uint256 => ticket) public tickets;  // Stores ticket\r\n\r\n    // modifier to ensure a function is callable only by its owner    \r\n    modifier ownerOnly(uint256 ticketId) {\r\n        require(tickets[ticketId].owner == msg.sender);\r\n        _;\r\n    }\r\n\r\n    // modifier to ensure ticketId is valid\r\n    modifier validTicketId(uint256 ticketId) {\r\n        require(ticketId < numTickets);\r\n        _;\r\n    }\r\n\r\n    /**\r\n     * creates a ticket and adds it to the ticket list\r\n     *\r\n     * param eventId   id of the event the ticket belongs to\r\n     * param price     Price of ticket in tokens\r\n     * param cat       category of ticket \r\n     * param seatid    assigned seat/zone\r\n     * return uint256  id of ticket that was created\r\n     */\r\n    function add(uint256 eventId, uint256 price, category cat, uint256 seatid) public returns (uint256) {\r\n        require(price > 0, \"Ticket price cannot be less then 0\");\r\n        // TODO: require user has enough tokens to purchase ticket (if ticket handles purchase)\r\n\r\n        ticket memory newTicket = ticket(msg.sender,\r\n                                         eventId,\r\n                                         price,\r\n                                         cat,\r\n                                         seatid);\r\n\r\n        uint256 newTicketId = numTickets++;\r\n        tickets[newTicketId] = newTicket;\r\n\r\n        return newTicketId;\r\n    }\r\n\r\n    /**\r\n     * gets the eventId of the event that the ticket is for\r\n     *\r\n     * param ticketID ID of ticket to query\r\n     * return eventId of ticket \r\n     */\r\n    function getTicketEvent(uint256 ticketId) public view validTicketId(ticketId) returns (uint256) {\r\n        return tickets[ticketId].eventId;\r\n    }\r\n\r\n    /**\r\n     * gets the price of the ticket\r\n     *\r\n     * param ticketID ID of ticket to query\r\n     * return uint256 price of ticket\r\n     */\r\n    function getTicketPrice(uint256 ticketId) public view validTicketId(ticketId) returns (uint256) {\r\n        return tickets[ticketId].price;\r\n    }\r\n\r\n    /**\r\n     * gets the category of the ticket\r\n     *\r\n     * param ticketID ID of ticket to query\r\n     * return category category of the ticket\r\n     */\r\n    function getTicketCat(uint256 ticketId) public view validTicketId(ticketId) returns (category) {\r\n        return tickets[ticketId].cat;\r\n    }\r\n\r\n    /**\r\n     * gets the ticket seat\r\n     *\r\n     * param ticketID ID of ticket to query\r\n     * return uint256 seatid of ticket\r\n     */\r\n    function getTicketSeat(uint256 ticketId) public view validTicketId(ticketId) returns (uint256) {\r\n        return tickets[ticketId].seatid;\r\n    }\r\n    \r\n}",
+  "sourcePath": "C:\\Users\\remus\\Desktop\\3.2\\IS4302\\Project\\contracts\\Ticket.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Ticket.sol",
+    "exportedSymbols": {
+      "Ticket": [
+        2906
+      ]
+    },
+    "id": 2907,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2746,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:9"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2906,
+        "linearizedBaseContracts": [
+          2906
+        ],
+        "name": "Ticket",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Ticket.category",
+            "id": 2750,
+            "members": [
+              {
+                "id": 2747,
+                "name": "floor",
+                "nodeType": "EnumValue",
+                "src": "267:5:9"
+              },
+              {
+                "id": 2748,
+                "name": "standard",
+                "nodeType": "EnumValue",
+                "src": "274:8:9"
+              },
+              {
+                "id": 2749,
+                "name": "vip",
+                "nodeType": "EnumValue",
+                "src": "284:3:9"
+              }
+            ],
+            "name": "category",
+            "nodeType": "EnumDefinition",
+            "src": "252:36:9"
+          },
+          {
+            "canonicalName": "Ticket.ticket",
+            "id": 2761,
+            "members": [
+              {
+                "constant": false,
+                "id": 2752,
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 2761,
+                "src": "598:13:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2751,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "598:7:9",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2754,
+                "name": "eventId",
+                "nodeType": "VariableDeclaration",
+                "scope": 2761,
+                "src": "622:15:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2753,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "622:7:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2756,
+                "name": "price",
+                "nodeType": "VariableDeclaration",
+                "scope": 2761,
+                "src": "670:13:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2755,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "670:7:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2758,
+                "name": "cat",
+                "nodeType": "VariableDeclaration",
+                "scope": 2761,
+                "src": "694:12:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_category_$2750",
+                  "typeString": "enum Ticket.category"
+                },
+                "typeName": {
+                  "contractScope": null,
+                  "id": 2757,
+                  "name": "category",
+                  "nodeType": "UserDefinedTypeName",
+                  "referencedDeclaration": 2750,
+                  "src": "694:8:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_category_$2750",
+                    "typeString": "enum Ticket.category"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2760,
+                "name": "seatid",
+                "nodeType": "VariableDeclaration",
+                "scope": 2761,
+                "src": "717:14:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2759,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "717:7:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "ticket",
+            "nodeType": "StructDefinition",
+            "scope": 2906,
+            "src": "573:166:9",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 2764,
+            "name": "numTickets",
+            "nodeType": "VariableDeclaration",
+            "scope": 2906,
+            "src": "747:29:9",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2762,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "747:7:9",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 2763,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "775:1:9",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 2768,
+            "name": "tickets",
+            "nodeType": "VariableDeclaration",
+            "scope": 2906,
+            "src": "811:41:9",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+              "typeString": "mapping(uint256 => struct Ticket.ticket)"
+            },
+            "typeName": {
+              "id": 2767,
+              "keyType": {
+                "id": 2765,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "819:7:9",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "811:26:9",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+                "typeString": "mapping(uint256 => struct Ticket.ticket)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 2766,
+                "name": "ticket",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 2761,
+                "src": "830:6:9",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_ticket_$2761_storage_ptr",
+                  "typeString": "struct Ticket.ticket"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2783,
+              "nodeType": "Block",
+              "src": "988:77:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 2779,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 2773,
+                              "name": "tickets",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2768,
+                              "src": "1007:7:9",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+                                "typeString": "mapping(uint256 => struct Ticket.ticket storage ref)"
+                              }
+                            },
+                            "id": 2775,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 2774,
+                              "name": "ticketId",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2770,
+                              "src": "1015:8:9",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "1007:17:9",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ticket_$2761_storage",
+                              "typeString": "struct Ticket.ticket storage ref"
+                            }
+                          },
+                          "id": 2776,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "owner",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2752,
+                          "src": "1007:23:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 2777,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2921,
+                            "src": "1034:3:9",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 2778,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "1034:10:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "src": "1007:37:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 2772,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        2924,
+                        2925
+                      ],
+                      "referencedDeclaration": 2924,
+                      "src": "999:7:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 2780,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "999:46:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2781,
+                  "nodeType": "ExpressionStatement",
+                  "src": "999:46:9"
+                },
+                {
+                  "id": 2782,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1056:1:9"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2784,
+            "name": "ownerOnly",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 2771,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2770,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2784,
+                  "src": "970:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2769,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "970:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "969:18:9"
+            },
+            "src": "951:114:9",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2795,
+              "nodeType": "Block",
+              "src": "1159:61:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 2791,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 2789,
+                          "name": "ticketId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2786,
+                          "src": "1178:8:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "id": 2790,
+                          "name": "numTickets",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2764,
+                          "src": "1189:10:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "1178:21:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 2788,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        2924,
+                        2925
+                      ],
+                      "referencedDeclaration": 2924,
+                      "src": "1170:7:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 2792,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1170:30:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2793,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1170:30:9"
+                },
+                {
+                  "id": 2794,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "1211:1:9"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2796,
+            "name": "validTicketId",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 2787,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2786,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2796,
+                  "src": "1141:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2785,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1141:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1140:18:9"
+            },
+            "src": "1118:102:9",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2840,
+              "nodeType": "Block",
+              "src": "1663:547:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 2812,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 2810,
+                          "name": "price",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2800,
+                          "src": "1682:5:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 2811,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1690:1:9",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "1682:9:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "5469636b65742070726963652063616e6e6f74206265206c657373207468656e2030",
+                        "id": 2813,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1693:36:9",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_928a6cffb3a031c8164d784191f45d3e72c6bab22b20f51e98863c2964f6ae94",
+                          "typeString": "literal_string \"Ticket price cannot be less then 0\""
+                        },
+                        "value": "Ticket price cannot be less then 0"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_928a6cffb3a031c8164d784191f45d3e72c6bab22b20f51e98863c2964f6ae94",
+                          "typeString": "literal_string \"Ticket price cannot be less then 0\""
+                        }
+                      ],
+                      "id": 2809,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        2924,
+                        2925
+                      ],
+                      "referencedDeclaration": 2925,
+                      "src": "1674:7:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 2814,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1674:56:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2815,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1674:56:9"
+                },
+                {
+                  "assignments": [
+                    2817
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2817,
+                      "name": "newTicket",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2840,
+                      "src": "1840:23:9",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ticket_$2761_memory_ptr",
+                        "typeString": "struct Ticket.ticket"
+                      },
+                      "typeName": {
+                        "contractScope": null,
+                        "id": 2816,
+                        "name": "ticket",
+                        "nodeType": "UserDefinedTypeName",
+                        "referencedDeclaration": 2761,
+                        "src": "1840:6:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ticket_$2761_storage_ptr",
+                          "typeString": "struct Ticket.ticket"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2826,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 2819,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2921,
+                          "src": "1873:3:9",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 2820,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "1873:10:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2821,
+                        "name": "eventId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2798,
+                        "src": "1927:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2822,
+                        "name": "price",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2800,
+                        "src": "1978:5:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2823,
+                        "name": "cat",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2802,
+                        "src": "2027:3:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_category_$2750",
+                          "typeString": "enum Ticket.category"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 2824,
+                        "name": "seatid",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2804,
+                        "src": "2074:6:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_enum$_category_$2750",
+                          "typeString": "enum Ticket.category"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 2818,
+                      "name": "ticket",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2761,
+                      "src": "1866:6:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_ticket_$2761_storage_ptr_$",
+                        "typeString": "type(struct Ticket.ticket storage pointer)"
+                      }
+                    },
+                    "id": 2825,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1866:215:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ticket_$2761_memory",
+                      "typeString": "struct Ticket.ticket memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1840:241:9"
+                },
+                {
+                  "assignments": [
+                    2828
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2828,
+                      "name": "newTicketId",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2840,
+                      "src": "2094:19:9",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 2827,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2094:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2831,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "id": 2830,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "2116:12:9",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 2829,
+                      "name": "numTickets",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2764,
+                      "src": "2116:10:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2094:34:9"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2836,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 2832,
+                        "name": "tickets",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2768,
+                        "src": "2139:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+                          "typeString": "mapping(uint256 => struct Ticket.ticket storage ref)"
+                        }
+                      },
+                      "id": 2834,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 2833,
+                        "name": "newTicketId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2828,
+                        "src": "2147:11:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "2139:20:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ticket_$2761_storage",
+                        "typeString": "struct Ticket.ticket storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 2835,
+                      "name": "newTicket",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2817,
+                      "src": "2162:9:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ticket_$2761_memory_ptr",
+                        "typeString": "struct Ticket.ticket memory"
+                      }
+                    },
+                    "src": "2139:32:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ticket_$2761_storage",
+                      "typeString": "struct Ticket.ticket storage ref"
+                    }
+                  },
+                  "id": 2837,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2139:32:9"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2838,
+                    "name": "newTicketId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2828,
+                    "src": "2191:11:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2808,
+                  "id": 2839,
+                  "nodeType": "Return",
+                  "src": "2184:18:9"
+                }
+              ]
+            },
+            "documentation": "creates a ticket and adds it to the ticket list\n\n     * param eventId   id of the event the ticket belongs to\nparam price     Price of ticket in tokens\nparam cat       category of ticket \nparam seatid    assigned seat/zone\nreturn uint256  id of ticket that was created",
+            "id": 2841,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "add",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2805,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2798,
+                  "name": "eventId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2841,
+                  "src": "1576:15:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2797,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1576:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2800,
+                  "name": "price",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2841,
+                  "src": "1593:13:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2799,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1593:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2802,
+                  "name": "cat",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2841,
+                  "src": "1608:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_category_$2750",
+                    "typeString": "enum Ticket.category"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2801,
+                    "name": "category",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2750,
+                    "src": "1608:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_category_$2750",
+                      "typeString": "enum Ticket.category"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2804,
+                  "name": "seatid",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2841,
+                  "src": "1622:14:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2803,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1622:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1575:62:9"
+            },
+            "returnParameters": {
+              "id": 2808,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2807,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2841,
+                  "src": "1654:7:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2806,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1654:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1653:9:9"
+            },
+            "scope": 2906,
+            "src": "1563:647:9",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2856,
+              "nodeType": "Block",
+              "src": "2480:51:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 2851,
+                        "name": "tickets",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2768,
+                        "src": "2498:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+                          "typeString": "mapping(uint256 => struct Ticket.ticket storage ref)"
+                        }
+                      },
+                      "id": 2853,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 2852,
+                        "name": "ticketId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2843,
+                        "src": "2506:8:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "2498:17:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ticket_$2761_storage",
+                        "typeString": "struct Ticket.ticket storage ref"
+                      }
+                    },
+                    "id": 2854,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "eventId",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 2754,
+                    "src": "2498:25:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2850,
+                  "id": 2855,
+                  "nodeType": "Return",
+                  "src": "2491:32:9"
+                }
+              ]
+            },
+            "documentation": "gets the eventId of the event that the ticket is for\n\n     * param ticketID ID of ticket to query\nreturn eventId of ticket ",
+            "id": 2857,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 2846,
+                    "name": "ticketId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2843,
+                    "src": "2452:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 2847,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 2845,
+                  "name": "validTicketId",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2796,
+                  "src": "2438:13:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2438:23:9"
+              }
+            ],
+            "name": "getTicketEvent",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2844,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2843,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2857,
+                  "src": "2408:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2842,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2408:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2407:18:9"
+            },
+            "returnParameters": {
+              "id": 2850,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2849,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2857,
+                  "src": "2471:7:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2848,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2471:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2470:9:9"
+            },
+            "scope": 2906,
+            "src": "2384:147:9",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2872,
+              "nodeType": "Block",
+              "src": "2782:49:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 2867,
+                        "name": "tickets",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2768,
+                        "src": "2800:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+                          "typeString": "mapping(uint256 => struct Ticket.ticket storage ref)"
+                        }
+                      },
+                      "id": 2869,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 2868,
+                        "name": "ticketId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2859,
+                        "src": "2808:8:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "2800:17:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ticket_$2761_storage",
+                        "typeString": "struct Ticket.ticket storage ref"
+                      }
+                    },
+                    "id": 2870,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "price",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 2756,
+                    "src": "2800:23:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2866,
+                  "id": 2871,
+                  "nodeType": "Return",
+                  "src": "2793:30:9"
+                }
+              ]
+            },
+            "documentation": "gets the price of the ticket\n\n     * param ticketID ID of ticket to query\nreturn uint256 price of ticket",
+            "id": 2873,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 2862,
+                    "name": "ticketId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2859,
+                    "src": "2754:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 2863,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 2861,
+                  "name": "validTicketId",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2796,
+                  "src": "2740:13:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2740:23:9"
+              }
+            ],
+            "name": "getTicketPrice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2860,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2859,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2873,
+                  "src": "2710:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2858,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2710:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2709:18:9"
+            },
+            "returnParameters": {
+              "id": 2866,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2865,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2873,
+                  "src": "2773:7:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2864,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2773:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2772:9:9"
+            },
+            "scope": 2906,
+            "src": "2686:145:9",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2888,
+              "nodeType": "Block",
+              "src": "3092:47:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 2883,
+                        "name": "tickets",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2768,
+                        "src": "3110:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+                          "typeString": "mapping(uint256 => struct Ticket.ticket storage ref)"
+                        }
+                      },
+                      "id": 2885,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 2884,
+                        "name": "ticketId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2875,
+                        "src": "3118:8:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "3110:17:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ticket_$2761_storage",
+                        "typeString": "struct Ticket.ticket storage ref"
+                      }
+                    },
+                    "id": 2886,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "cat",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 2758,
+                    "src": "3110:21:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_category_$2750",
+                      "typeString": "enum Ticket.category"
+                    }
+                  },
+                  "functionReturnParameters": 2882,
+                  "id": 2887,
+                  "nodeType": "Return",
+                  "src": "3103:28:9"
+                }
+              ]
+            },
+            "documentation": "gets the category of the ticket\n\n     * param ticketID ID of ticket to query\nreturn category category of the ticket",
+            "id": 2889,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 2878,
+                    "name": "ticketId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2875,
+                    "src": "3063:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 2879,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 2877,
+                  "name": "validTicketId",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2796,
+                  "src": "3049:13:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "3049:23:9"
+              }
+            ],
+            "name": "getTicketCat",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2876,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2875,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2889,
+                  "src": "3019:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2874,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3019:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3018:18:9"
+            },
+            "returnParameters": {
+              "id": 2882,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2881,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2889,
+                  "src": "3082:8:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_category_$2750",
+                    "typeString": "enum Ticket.category"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 2880,
+                    "name": "category",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2750,
+                    "src": "3082:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_category_$2750",
+                      "typeString": "enum Ticket.category"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3081:10:9"
+            },
+            "scope": 2906,
+            "src": "2997:142:9",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2904,
+              "nodeType": "Block",
+              "src": "3382:50:9",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 2899,
+                        "name": "tickets",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2768,
+                        "src": "3400:7:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_ticket_$2761_storage_$",
+                          "typeString": "mapping(uint256 => struct Ticket.ticket storage ref)"
+                        }
+                      },
+                      "id": 2901,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "id": 2900,
+                        "name": "ticketId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2891,
+                        "src": "3408:8:9",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "3400:17:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ticket_$2761_storage",
+                        "typeString": "struct Ticket.ticket storage ref"
+                      }
+                    },
+                    "id": 2902,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "seatid",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 2760,
+                    "src": "3400:24:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2898,
+                  "id": 2903,
+                  "nodeType": "Return",
+                  "src": "3393:31:9"
+                }
+              ]
+            },
+            "documentation": "gets the ticket seat\n\n     * param ticketID ID of ticket to query\nreturn uint256 seatid of ticket",
+            "id": 2905,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 2894,
+                    "name": "ticketId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2891,
+                    "src": "3354:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                ],
+                "id": 2895,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 2893,
+                  "name": "validTicketId",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 2796,
+                  "src": "3340:13:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_uint256_$",
+                    "typeString": "modifier (uint256)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "3340:23:9"
+              }
+            ],
+            "name": "getTicketSeat",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2892,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2891,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2905,
+                  "src": "3310:16:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2890,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3310:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3309:18:9"
+            },
+            "returnParameters": {
+              "id": 2898,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2897,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2905,
+                  "src": "3373:7:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2896,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3373:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3372:9:9"
+            },
+            "scope": 2906,
+            "src": "3287:145:9",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2907,
+        "src": "27:3414:9"
+      }
+    ],
+    "src": "0:3441:9"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Ticket.sol",
+      "exportedSymbols": {
+        "Ticket": [
+          2906
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 2746,
+        "name": "PragmaDirective",
+        "src": "0:23:9"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            2906
+          ],
+          "name": "Ticket",
+          "scope": 2907
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "Ticket.category",
+              "name": "category"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "floor"
+                },
+                "id": 2747,
+                "name": "EnumValue",
+                "src": "267:5:9"
+              },
+              {
+                "attributes": {
+                  "name": "standard"
+                },
+                "id": 2748,
+                "name": "EnumValue",
+                "src": "274:8:9"
+              },
+              {
+                "attributes": {
+                  "name": "vip"
+                },
+                "id": 2749,
+                "name": "EnumValue",
+                "src": "284:3:9"
+              }
+            ],
+            "id": 2750,
+            "name": "EnumDefinition",
+            "src": "252:36:9"
+          },
+          {
+            "attributes": {
+              "canonicalName": "Ticket.ticket",
+              "name": "ticket",
+              "scope": 2906,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "owner",
+                  "scope": 2761,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 2751,
+                    "name": "ElementaryTypeName",
+                    "src": "598:7:9"
+                  }
+                ],
+                "id": 2752,
+                "name": "VariableDeclaration",
+                "src": "598:13:9"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "eventId",
+                  "scope": 2761,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 2753,
+                    "name": "ElementaryTypeName",
+                    "src": "622:7:9"
+                  }
+                ],
+                "id": 2754,
+                "name": "VariableDeclaration",
+                "src": "622:15:9"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "price",
+                  "scope": 2761,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 2755,
+                    "name": "ElementaryTypeName",
+                    "src": "670:7:9"
+                  }
+                ],
+                "id": 2756,
+                "name": "VariableDeclaration",
+                "src": "670:13:9"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "cat",
+                  "scope": 2761,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "enum Ticket.category",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "category",
+                      "referencedDeclaration": 2750,
+                      "type": "enum Ticket.category"
+                    },
+                    "id": 2757,
+                    "name": "UserDefinedTypeName",
+                    "src": "694:8:9"
+                  }
+                ],
+                "id": 2758,
+                "name": "VariableDeclaration",
+                "src": "694:12:9"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "seatid",
+                  "scope": 2761,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 2759,
+                    "name": "ElementaryTypeName",
+                    "src": "717:7:9"
+                  }
+                ],
+                "id": 2760,
+                "name": "VariableDeclaration",
+                "src": "717:14:9"
+              }
+            ],
+            "id": 2761,
+            "name": "StructDefinition",
+            "src": "573:166:9"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "numTickets",
+              "scope": 2906,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 2762,
+                "name": "ElementaryTypeName",
+                "src": "747:7:9"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "30",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 0",
+                  "value": "0"
+                },
+                "id": 2763,
+                "name": "Literal",
+                "src": "775:1:9"
+              }
+            ],
+            "id": 2764,
+            "name": "VariableDeclaration",
+            "src": "747:29:9"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "tickets",
+              "scope": 2906,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(uint256 => struct Ticket.ticket)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(uint256 => struct Ticket.ticket)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 2765,
+                    "name": "ElementaryTypeName",
+                    "src": "819:7:9"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "ticket",
+                      "referencedDeclaration": 2761,
+                      "type": "struct Ticket.ticket"
+                    },
+                    "id": 2766,
+                    "name": "UserDefinedTypeName",
+                    "src": "830:6:9"
+                  }
+                ],
+                "id": 2767,
+                "name": "Mapping",
+                "src": "811:26:9"
+              }
+            ],
+            "id": 2768,
+            "name": "VariableDeclaration",
+            "src": "811:41:9"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "ownerOnly",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 2784,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2769,
+                        "name": "ElementaryTypeName",
+                        "src": "970:7:9"
+                      }
+                    ],
+                    "id": 2770,
+                    "name": "VariableDeclaration",
+                    "src": "970:16:9"
+                  }
+                ],
+                "id": 2771,
+                "name": "ParameterList",
+                "src": "969:18:9"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                2924,
+                                2925
+                              ],
+                              "referencedDeclaration": 2924,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2772,
+                            "name": "Identifier",
+                            "src": "999:7:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "owner",
+                                  "referencedDeclaration": 2752,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "struct Ticket.ticket storage ref"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2768,
+                                          "type": "mapping(uint256 => struct Ticket.ticket storage ref)",
+                                          "value": "tickets"
+                                        },
+                                        "id": 2773,
+                                        "name": "Identifier",
+                                        "src": "1007:7:9"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2770,
+                                          "type": "uint256",
+                                          "value": "ticketId"
+                                        },
+                                        "id": 2774,
+                                        "name": "Identifier",
+                                        "src": "1015:8:9"
+                                      }
+                                    ],
+                                    "id": 2775,
+                                    "name": "IndexAccess",
+                                    "src": "1007:17:9"
+                                  }
+                                ],
+                                "id": 2776,
+                                "name": "MemberAccess",
+                                "src": "1007:23:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address payable"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2921,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 2777,
+                                    "name": "Identifier",
+                                    "src": "1034:3:9"
+                                  }
+                                ],
+                                "id": 2778,
+                                "name": "MemberAccess",
+                                "src": "1034:10:9"
+                              }
+                            ],
+                            "id": 2779,
+                            "name": "BinaryOperation",
+                            "src": "1007:37:9"
+                          }
+                        ],
+                        "id": 2780,
+                        "name": "FunctionCall",
+                        "src": "999:46:9"
+                      }
+                    ],
+                    "id": 2781,
+                    "name": "ExpressionStatement",
+                    "src": "999:46:9"
+                  },
+                  {
+                    "id": 2782,
+                    "name": "PlaceholderStatement",
+                    "src": "1056:1:9"
+                  }
+                ],
+                "id": 2783,
+                "name": "Block",
+                "src": "988:77:9"
+              }
+            ],
+            "id": 2784,
+            "name": "ModifierDefinition",
+            "src": "951:114:9"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "validTicketId",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 2796,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2785,
+                        "name": "ElementaryTypeName",
+                        "src": "1141:7:9"
+                      }
+                    ],
+                    "id": 2786,
+                    "name": "VariableDeclaration",
+                    "src": "1141:16:9"
+                  }
+                ],
+                "id": 2787,
+                "name": "ParameterList",
+                "src": "1140:18:9"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                2924,
+                                2925
+                              ],
+                              "referencedDeclaration": 2924,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2788,
+                            "name": "Identifier",
+                            "src": "1170:7:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "<",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2786,
+                                  "type": "uint256",
+                                  "value": "ticketId"
+                                },
+                                "id": 2789,
+                                "name": "Identifier",
+                                "src": "1178:8:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2764,
+                                  "type": "uint256",
+                                  "value": "numTickets"
+                                },
+                                "id": 2790,
+                                "name": "Identifier",
+                                "src": "1189:10:9"
+                              }
+                            ],
+                            "id": 2791,
+                            "name": "BinaryOperation",
+                            "src": "1178:21:9"
+                          }
+                        ],
+                        "id": 2792,
+                        "name": "FunctionCall",
+                        "src": "1170:30:9"
+                      }
+                    ],
+                    "id": 2793,
+                    "name": "ExpressionStatement",
+                    "src": "1170:30:9"
+                  },
+                  {
+                    "id": 2794,
+                    "name": "PlaceholderStatement",
+                    "src": "1211:1:9"
+                  }
+                ],
+                "id": 2795,
+                "name": "Block",
+                "src": "1159:61:9"
+              }
+            ],
+            "id": 2796,
+            "name": "ModifierDefinition",
+            "src": "1118:102:9"
+          },
+          {
+            "attributes": {
+              "documentation": "creates a ticket and adds it to the ticket list\n\n     * param eventId   id of the event the ticket belongs to\nparam price     Price of ticket in tokens\nparam cat       category of ticket \nparam seatid    assigned seat/zone\nreturn uint256  id of ticket that was created",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "add",
+              "scope": 2906,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "eventId",
+                      "scope": 2841,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2797,
+                        "name": "ElementaryTypeName",
+                        "src": "1576:7:9"
+                      }
+                    ],
+                    "id": 2798,
+                    "name": "VariableDeclaration",
+                    "src": "1576:15:9"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "price",
+                      "scope": 2841,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2799,
+                        "name": "ElementaryTypeName",
+                        "src": "1593:7:9"
+                      }
+                    ],
+                    "id": 2800,
+                    "name": "VariableDeclaration",
+                    "src": "1593:13:9"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "cat",
+                      "scope": 2841,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum Ticket.category",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "category",
+                          "referencedDeclaration": 2750,
+                          "type": "enum Ticket.category"
+                        },
+                        "id": 2801,
+                        "name": "UserDefinedTypeName",
+                        "src": "1608:8:9"
+                      }
+                    ],
+                    "id": 2802,
+                    "name": "VariableDeclaration",
+                    "src": "1608:12:9"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "seatid",
+                      "scope": 2841,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2803,
+                        "name": "ElementaryTypeName",
+                        "src": "1622:7:9"
+                      }
+                    ],
+                    "id": 2804,
+                    "name": "VariableDeclaration",
+                    "src": "1622:14:9"
+                  }
+                ],
+                "id": 2805,
+                "name": "ParameterList",
+                "src": "1575:62:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 2841,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2806,
+                        "name": "ElementaryTypeName",
+                        "src": "1654:7:9"
+                      }
+                    ],
+                    "id": 2807,
+                    "name": "VariableDeclaration",
+                    "src": "1654:7:9"
+                  }
+                ],
+                "id": 2808,
+                "name": "ParameterList",
+                "src": "1653:9:9"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_928a6cffb3a031c8164d784191f45d3e72c6bab22b20f51e98863c2964f6ae94",
+                                  "typeString": "literal_string \"Ticket price cannot be less then 0\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                2924,
+                                2925
+                              ],
+                              "referencedDeclaration": 2925,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 2809,
+                            "name": "Identifier",
+                            "src": "1674:7:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": ">",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2800,
+                                  "type": "uint256",
+                                  "value": "price"
+                                },
+                                "id": 2810,
+                                "name": "Identifier",
+                                "src": "1682:5:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 2811,
+                                "name": "Literal",
+                                "src": "1690:1:9"
+                              }
+                            ],
+                            "id": 2812,
+                            "name": "BinaryOperation",
+                            "src": "1682:9:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "5469636b65742070726963652063616e6e6f74206265206c657373207468656e2030",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Ticket price cannot be less then 0\"",
+                              "value": "Ticket price cannot be less then 0"
+                            },
+                            "id": 2813,
+                            "name": "Literal",
+                            "src": "1693:36:9"
+                          }
+                        ],
+                        "id": 2814,
+                        "name": "FunctionCall",
+                        "src": "1674:56:9"
+                      }
+                    ],
+                    "id": 2815,
+                    "name": "ExpressionStatement",
+                    "src": "1674:56:9"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2817
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "newTicket",
+                          "scope": 2840,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct Ticket.ticket",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "ticket",
+                              "referencedDeclaration": 2761,
+                              "type": "struct Ticket.ticket"
+                            },
+                            "id": 2816,
+                            "name": "UserDefinedTypeName",
+                            "src": "1840:6:9"
+                          }
+                        ],
+                        "id": 2817,
+                        "name": "VariableDeclaration",
+                        "src": "1840:23:9"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "struct Ticket.ticket memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address_payable",
+                                  "typeString": "address payable"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                {
+                                  "typeIdentifier": "t_enum$_category_$2750",
+                                  "typeString": "enum Ticket.category"
+                                },
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2761,
+                              "type": "type(struct Ticket.ticket storage pointer)",
+                              "value": "ticket"
+                            },
+                            "id": 2818,
+                            "name": "Identifier",
+                            "src": "1866:6:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2921,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 2819,
+                                "name": "Identifier",
+                                "src": "1873:3:9"
+                              }
+                            ],
+                            "id": 2820,
+                            "name": "MemberAccess",
+                            "src": "1873:10:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2798,
+                              "type": "uint256",
+                              "value": "eventId"
+                            },
+                            "id": 2821,
+                            "name": "Identifier",
+                            "src": "1927:7:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2800,
+                              "type": "uint256",
+                              "value": "price"
+                            },
+                            "id": 2822,
+                            "name": "Identifier",
+                            "src": "1978:5:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2802,
+                              "type": "enum Ticket.category",
+                              "value": "cat"
+                            },
+                            "id": 2823,
+                            "name": "Identifier",
+                            "src": "2027:3:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2804,
+                              "type": "uint256",
+                              "value": "seatid"
+                            },
+                            "id": 2824,
+                            "name": "Identifier",
+                            "src": "2074:6:9"
+                          }
+                        ],
+                        "id": 2825,
+                        "name": "FunctionCall",
+                        "src": "1866:215:9"
+                      }
+                    ],
+                    "id": 2826,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1840:241:9"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        2828
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "newTicketId",
+                          "scope": 2840,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint256",
+                              "type": "uint256"
+                            },
+                            "id": 2827,
+                            "name": "ElementaryTypeName",
+                            "src": "2094:7:9"
+                          }
+                        ],
+                        "id": 2828,
+                        "name": "VariableDeclaration",
+                        "src": "2094:19:9"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "++",
+                          "prefix": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2764,
+                              "type": "uint256",
+                              "value": "numTickets"
+                            },
+                            "id": 2829,
+                            "name": "Identifier",
+                            "src": "2116:10:9"
+                          }
+                        ],
+                        "id": 2830,
+                        "name": "UnaryOperation",
+                        "src": "2116:12:9"
+                      }
+                    ],
+                    "id": 2831,
+                    "name": "VariableDeclarationStatement",
+                    "src": "2094:34:9"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct Ticket.ticket storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct Ticket.ticket storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2768,
+                                  "type": "mapping(uint256 => struct Ticket.ticket storage ref)",
+                                  "value": "tickets"
+                                },
+                                "id": 2832,
+                                "name": "Identifier",
+                                "src": "2139:7:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2828,
+                                  "type": "uint256",
+                                  "value": "newTicketId"
+                                },
+                                "id": 2833,
+                                "name": "Identifier",
+                                "src": "2147:11:9"
+                              }
+                            ],
+                            "id": 2834,
+                            "name": "IndexAccess",
+                            "src": "2139:20:9"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2817,
+                              "type": "struct Ticket.ticket memory",
+                              "value": "newTicket"
+                            },
+                            "id": 2835,
+                            "name": "Identifier",
+                            "src": "2162:9:9"
+                          }
+                        ],
+                        "id": 2836,
+                        "name": "Assignment",
+                        "src": "2139:32:9"
+                      }
+                    ],
+                    "id": 2837,
+                    "name": "ExpressionStatement",
+                    "src": "2139:32:9"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2808
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 2828,
+                          "type": "uint256",
+                          "value": "newTicketId"
+                        },
+                        "id": 2838,
+                        "name": "Identifier",
+                        "src": "2191:11:9"
+                      }
+                    ],
+                    "id": 2839,
+                    "name": "Return",
+                    "src": "2184:18:9"
+                  }
+                ],
+                "id": 2840,
+                "name": "Block",
+                "src": "1663:547:9"
+              }
+            ],
+            "id": 2841,
+            "name": "FunctionDefinition",
+            "src": "1563:647:9"
+          },
+          {
+            "attributes": {
+              "documentation": "gets the eventId of the event that the ticket is for\n\n     * param ticketID ID of ticket to query\nreturn eventId of ticket ",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "getTicketEvent",
+              "scope": 2906,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 2857,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2842,
+                        "name": "ElementaryTypeName",
+                        "src": "2408:7:9"
+                      }
+                    ],
+                    "id": 2843,
+                    "name": "VariableDeclaration",
+                    "src": "2408:16:9"
+                  }
+                ],
+                "id": 2844,
+                "name": "ParameterList",
+                "src": "2407:18:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 2857,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2848,
+                        "name": "ElementaryTypeName",
+                        "src": "2471:7:9"
+                      }
+                    ],
+                    "id": 2849,
+                    "name": "VariableDeclaration",
+                    "src": "2471:7:9"
+                  }
+                ],
+                "id": 2850,
+                "name": "ParameterList",
+                "src": "2470:9:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2796,
+                      "type": "modifier (uint256)",
+                      "value": "validTicketId"
+                    },
+                    "id": 2845,
+                    "name": "Identifier",
+                    "src": "2438:13:9"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2843,
+                      "type": "uint256",
+                      "value": "ticketId"
+                    },
+                    "id": 2846,
+                    "name": "Identifier",
+                    "src": "2452:8:9"
+                  }
+                ],
+                "id": 2847,
+                "name": "ModifierInvocation",
+                "src": "2438:23:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2850
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "eventId",
+                          "referencedDeclaration": 2754,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Ticket.ticket storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2768,
+                                  "type": "mapping(uint256 => struct Ticket.ticket storage ref)",
+                                  "value": "tickets"
+                                },
+                                "id": 2851,
+                                "name": "Identifier",
+                                "src": "2498:7:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2843,
+                                  "type": "uint256",
+                                  "value": "ticketId"
+                                },
+                                "id": 2852,
+                                "name": "Identifier",
+                                "src": "2506:8:9"
+                              }
+                            ],
+                            "id": 2853,
+                            "name": "IndexAccess",
+                            "src": "2498:17:9"
+                          }
+                        ],
+                        "id": 2854,
+                        "name": "MemberAccess",
+                        "src": "2498:25:9"
+                      }
+                    ],
+                    "id": 2855,
+                    "name": "Return",
+                    "src": "2491:32:9"
+                  }
+                ],
+                "id": 2856,
+                "name": "Block",
+                "src": "2480:51:9"
+              }
+            ],
+            "id": 2857,
+            "name": "FunctionDefinition",
+            "src": "2384:147:9"
+          },
+          {
+            "attributes": {
+              "documentation": "gets the price of the ticket\n\n     * param ticketID ID of ticket to query\nreturn uint256 price of ticket",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "getTicketPrice",
+              "scope": 2906,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 2873,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2858,
+                        "name": "ElementaryTypeName",
+                        "src": "2710:7:9"
+                      }
+                    ],
+                    "id": 2859,
+                    "name": "VariableDeclaration",
+                    "src": "2710:16:9"
+                  }
+                ],
+                "id": 2860,
+                "name": "ParameterList",
+                "src": "2709:18:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 2873,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2864,
+                        "name": "ElementaryTypeName",
+                        "src": "2773:7:9"
+                      }
+                    ],
+                    "id": 2865,
+                    "name": "VariableDeclaration",
+                    "src": "2773:7:9"
+                  }
+                ],
+                "id": 2866,
+                "name": "ParameterList",
+                "src": "2772:9:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2796,
+                      "type": "modifier (uint256)",
+                      "value": "validTicketId"
+                    },
+                    "id": 2861,
+                    "name": "Identifier",
+                    "src": "2740:13:9"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2859,
+                      "type": "uint256",
+                      "value": "ticketId"
+                    },
+                    "id": 2862,
+                    "name": "Identifier",
+                    "src": "2754:8:9"
+                  }
+                ],
+                "id": 2863,
+                "name": "ModifierInvocation",
+                "src": "2740:23:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2866
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "price",
+                          "referencedDeclaration": 2756,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Ticket.ticket storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2768,
+                                  "type": "mapping(uint256 => struct Ticket.ticket storage ref)",
+                                  "value": "tickets"
+                                },
+                                "id": 2867,
+                                "name": "Identifier",
+                                "src": "2800:7:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2859,
+                                  "type": "uint256",
+                                  "value": "ticketId"
+                                },
+                                "id": 2868,
+                                "name": "Identifier",
+                                "src": "2808:8:9"
+                              }
+                            ],
+                            "id": 2869,
+                            "name": "IndexAccess",
+                            "src": "2800:17:9"
+                          }
+                        ],
+                        "id": 2870,
+                        "name": "MemberAccess",
+                        "src": "2800:23:9"
+                      }
+                    ],
+                    "id": 2871,
+                    "name": "Return",
+                    "src": "2793:30:9"
+                  }
+                ],
+                "id": 2872,
+                "name": "Block",
+                "src": "2782:49:9"
+              }
+            ],
+            "id": 2873,
+            "name": "FunctionDefinition",
+            "src": "2686:145:9"
+          },
+          {
+            "attributes": {
+              "documentation": "gets the category of the ticket\n\n     * param ticketID ID of ticket to query\nreturn category category of the ticket",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "getTicketCat",
+              "scope": 2906,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 2889,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2874,
+                        "name": "ElementaryTypeName",
+                        "src": "3019:7:9"
+                      }
+                    ],
+                    "id": 2875,
+                    "name": "VariableDeclaration",
+                    "src": "3019:16:9"
+                  }
+                ],
+                "id": 2876,
+                "name": "ParameterList",
+                "src": "3018:18:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 2889,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum Ticket.category",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "category",
+                          "referencedDeclaration": 2750,
+                          "type": "enum Ticket.category"
+                        },
+                        "id": 2880,
+                        "name": "UserDefinedTypeName",
+                        "src": "3082:8:9"
+                      }
+                    ],
+                    "id": 2881,
+                    "name": "VariableDeclaration",
+                    "src": "3082:8:9"
+                  }
+                ],
+                "id": 2882,
+                "name": "ParameterList",
+                "src": "3081:10:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2796,
+                      "type": "modifier (uint256)",
+                      "value": "validTicketId"
+                    },
+                    "id": 2877,
+                    "name": "Identifier",
+                    "src": "3049:13:9"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2875,
+                      "type": "uint256",
+                      "value": "ticketId"
+                    },
+                    "id": 2878,
+                    "name": "Identifier",
+                    "src": "3063:8:9"
+                  }
+                ],
+                "id": 2879,
+                "name": "ModifierInvocation",
+                "src": "3049:23:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2882
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "cat",
+                          "referencedDeclaration": 2758,
+                          "type": "enum Ticket.category"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Ticket.ticket storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2768,
+                                  "type": "mapping(uint256 => struct Ticket.ticket storage ref)",
+                                  "value": "tickets"
+                                },
+                                "id": 2883,
+                                "name": "Identifier",
+                                "src": "3110:7:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2875,
+                                  "type": "uint256",
+                                  "value": "ticketId"
+                                },
+                                "id": 2884,
+                                "name": "Identifier",
+                                "src": "3118:8:9"
+                              }
+                            ],
+                            "id": 2885,
+                            "name": "IndexAccess",
+                            "src": "3110:17:9"
+                          }
+                        ],
+                        "id": 2886,
+                        "name": "MemberAccess",
+                        "src": "3110:21:9"
+                      }
+                    ],
+                    "id": 2887,
+                    "name": "Return",
+                    "src": "3103:28:9"
+                  }
+                ],
+                "id": 2888,
+                "name": "Block",
+                "src": "3092:47:9"
+              }
+            ],
+            "id": 2889,
+            "name": "FunctionDefinition",
+            "src": "2997:142:9"
+          },
+          {
+            "attributes": {
+              "documentation": "gets the ticket seat\n\n     * param ticketID ID of ticket to query\nreturn uint256 seatid of ticket",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "getTicketSeat",
+              "scope": 2906,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 2905,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2890,
+                        "name": "ElementaryTypeName",
+                        "src": "3310:7:9"
+                      }
+                    ],
+                    "id": 2891,
+                    "name": "VariableDeclaration",
+                    "src": "3310:16:9"
+                  }
+                ],
+                "id": 2892,
+                "name": "ParameterList",
+                "src": "3309:18:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 2905,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 2896,
+                        "name": "ElementaryTypeName",
+                        "src": "3373:7:9"
+                      }
+                    ],
+                    "id": 2897,
+                    "name": "VariableDeclaration",
+                    "src": "3373:7:9"
+                  }
+                ],
+                "id": 2898,
+                "name": "ParameterList",
+                "src": "3372:9:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2796,
+                      "type": "modifier (uint256)",
+                      "value": "validTicketId"
+                    },
+                    "id": 2893,
+                    "name": "Identifier",
+                    "src": "3340:13:9"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2891,
+                      "type": "uint256",
+                      "value": "ticketId"
+                    },
+                    "id": 2894,
+                    "name": "Identifier",
+                    "src": "3354:8:9"
+                  }
+                ],
+                "id": 2895,
+                "name": "ModifierInvocation",
+                "src": "3340:23:9"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2898
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "seatid",
+                          "referencedDeclaration": 2760,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Ticket.ticket storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2768,
+                                  "type": "mapping(uint256 => struct Ticket.ticket storage ref)",
+                                  "value": "tickets"
+                                },
+                                "id": 2899,
+                                "name": "Identifier",
+                                "src": "3400:7:9"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2891,
+                                  "type": "uint256",
+                                  "value": "ticketId"
+                                },
+                                "id": 2900,
+                                "name": "Identifier",
+                                "src": "3408:8:9"
+                              }
+                            ],
+                            "id": 2901,
+                            "name": "IndexAccess",
+                            "src": "3400:17:9"
+                          }
+                        ],
+                        "id": 2902,
+                        "name": "MemberAccess",
+                        "src": "3400:24:9"
+                      }
+                    ],
+                    "id": 2903,
+                    "name": "Return",
+                    "src": "3393:31:9"
+                  }
+                ],
+                "id": 2904,
+                "name": "Block",
+                "src": "3382:50:9"
+              }
+            ],
+            "id": 2905,
+            "name": "FunctionDefinition",
+            "src": "3287:145:9"
+          }
+        ],
+        "id": 2906,
+        "name": "ContractDefinition",
+        "src": "27:3414:9"
+      }
+    ],
+    "id": 2907,
+    "name": "SourceUnit",
+    "src": "0:3441:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.17+commit.d19bba13.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-03-17T19:02:39.885Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {
+      "add(uint256,uint256,uint8,uint256)": {
+        "notice": "creates a ticket and adds it to the ticket list      * param eventId   id of the event the ticket belongs to param price     Price of ticket in tokens param cat       category of ticket  param seatid    assigned seat/zone return uint256  id of ticket that was created"
+      },
+      "getTicketCat(uint256)": {
+        "notice": "gets the category of the ticket      * param ticketID ID of ticket to query return category category of the ticket"
+      },
+      "getTicketEvent(uint256)": {
+        "notice": "gets the eventId of the event that the ticket is for      * param ticketID ID of ticket to query return eventId of ticket "
+      },
+      "getTicketPrice(uint256)": {
+        "notice": "gets the price of the ticket      * param ticketID ID of ticket to query return uint256 price of ticket"
+      },
+      "getTicketSeat(uint256)": {
+        "notice": "gets the ticket seat      * param ticketID ID of ticket to query return uint256 seatid of ticket"
+      }
+    }
+  }
+}

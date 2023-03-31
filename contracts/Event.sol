@@ -11,7 +11,7 @@ contract Event {
         ticketContract = ticketAddress;
     }
 
-    enum bidState { open, close }
+    enum bidState { close, open, buy }
 
     struct eventObj {
         string title;
@@ -22,6 +22,7 @@ contract Event {
         uint256 priceOfTicket;
         address seller;
         bidState state;
+        uint256 firstTicketId;
     }
 
     uint256 public numEvents = 0;
@@ -36,10 +37,7 @@ contract Event {
         uint256 priceOfTicket,
         address seller
     ) public returns (uint256) {
-        // require creation fee in terms of tokens?
-        // require(msg.sender == platformOwner/seller?)
-
-        // require input validation for parameters Eg. datetime
+        require(DateTime.timestampFromDateTime(year, month, day, hour, minute, second) > now, "Invalid Date and Time");
 
         eventObj memory newEvent = eventObj(
             title,
@@ -49,15 +47,17 @@ contract Event {
             ticketsLeft,
             priceOfTicket,
             seller,
-            bidState.close
+            bidState.close,
+            0
         );
 
         uint256 newEventId = numEvents++;
         events[newEventId] = newEvent;
-        // transfer creation fee?
 
         // Generate Tickets
-        generateEventTickets(newEventId, priceOfTicket, Ticket.category.standard, ticketsLeft);
+        uint256 firstTicketId = generateEventTickets(msg.sender, newEventId, priceOfTicket, Ticket.category.standard, ticketsLeft);
+
+        setEventFirstTicketId(newEventId, firstTicketId);
 
         return newEventId;
     }
@@ -67,10 +67,20 @@ contract Event {
         _;
     }
 
-    function generateEventTickets(uint256 eventId, uint256 price, Ticket.category cat, uint256 numOfTickets) public validEventId(eventId) {
+    function isEventIdValid(uint256 eventId) public view returns(bool) {
+        return eventId < numEvents;
+    }
+
+    function generateEventTickets(address owner, uint256 eventId, uint256 price, Ticket.category cat, uint256 numOfTickets) public validEventId(eventId) returns (uint256) {
+        uint256 firstTicketId;
         for (uint256 i = 0; i < numOfTickets; i++) {
-            ticketContract.add(eventId, price, cat, i);
+            if (i == 0) {
+                firstTicketId = ticketContract.add(owner, eventId, price, cat, i);
+            } else {
+                ticketContract.add(owner, eventId, price, cat, i);
+            }
         }
+        return firstTicketId;
     } 
 
     function getEventTitle(uint256 eventId) public view validEventId(eventId) returns (string memory) {
@@ -114,6 +124,18 @@ contract Event {
 
     function setEventBidState(uint256 eventId, bidState bstate) public validEventId(eventId) {
         events[eventId].state = bstate;
+    }
+
+    function getEventFirstTicketId(uint256 eventId) public view validEventId(eventId) returns (uint256) {
+        return events[eventId].firstTicketId;
+    }
+
+    function setEventFirstTicketId(uint256 eventId, uint256 ticketId) public validEventId(eventId) {
+        events[eventId].firstTicketId = ticketId;
+    }
+
+    function getLatestEventId() public view returns (uint256) {
+        return numEvents - 1;
     }
 }
 

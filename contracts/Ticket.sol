@@ -52,11 +52,11 @@ contract Ticket {
      * param seatid    assigned seat/zone
      * return uint256  id of ticket that was created
      */
-    function add(uint256 eventId, uint256 price, category cat, uint256 seatid) public returns (uint256) {
+    function add(address owner, uint256 eventId, uint256 price, category cat, uint256 seatid) public returns (uint256) {
         require(price > 0, "Ticket price cannot be less then 0");
         // TODO: require user has enough tokens to purchase ticket (if ticket handles purchase)
 
-        ticket memory newTicket = ticket(msg.sender,
+        ticket memory newTicket = ticket(owner,
                                          address(0),
                                          eventId,
                                          price,
@@ -87,11 +87,19 @@ contract Ticket {
         nxtTicket[eventId]++;
     }
 
+    function getTicketOwner(uint256 ticketId) public view validTicketId(ticketId) returns (address) {
+        return tickets[ticketId].owner;
+    }
+
+    function getTicketPrevOwner(uint256 ticketId) public view validTicketId(ticketId) returns (address) {
+        return tickets[ticketId].prevowner;
+    }
+
     /**
      * gets the eventId of the event that the ticket is for
      *
      * param ticketID ID of ticket to query
-     * return eventId of ticket 
+     * return eventId of ticket
      */
     function getTicketEvent(uint256 ticketId) public view validTicketId(ticketId) returns (uint256) {
         return tickets[ticketId].eventId;

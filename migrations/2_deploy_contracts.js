@@ -19,7 +19,7 @@ module.exports = async (deployer, network, account) => {
         return deployer.deploy(Auction, Ticket.address)
     })
     .then(function () {
-        return deployer.deploy(Platform, Account.address, EventToken.address, Event.address, Auction.address)
+        return deployer.deploy(Platform, Account.address, EventToken.address, Event.address, Ticket.address, Auction.address)
     });
 
     auctionInstance = await Auction.deployed();

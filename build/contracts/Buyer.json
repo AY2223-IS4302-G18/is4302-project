@@ -1,0 +1,1841 @@
+{
+  "contractName": "Buyer",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract Account",
+          "name": "accountAddress",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "quantity",
+          "type": "uint8"
+        }
+      ],
+      "name": "buyTickets",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "ticketId",
+          "type": "uint256"
+        }
+      ],
+      "name": "refundTickets",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "viewListedEvents",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "ticketId",
+          "type": "uint256"
+        }
+      ],
+      "name": "viewTicketsBought",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.17+commit.d19bba13\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract Account\",\"name\":\"accountAddress\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"eventId\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"quantity\",\"type\":\"uint8\"}],\"name\":\"buyTickets\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ticketId\",\"type\":\"uint256\"}],\"name\":\"refundTickets\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"eventId\",\"type\":\"uint256\"}],\"name\":\"viewListedEvents\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"ticketId\",\"type\":\"uint256\"}],\"name\":\"viewTicketsBought\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Buyer.sol\":\"Buyer\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Account.sol\":{\"keccak256\":\"0x60382e5ddeb55fa88d8dbd7b572daec863b503635e944334183d4b2c5f8a0818\",\"urls\":[\"bzz-raw://c1bf3f079e679065871e2d14465529017e6b964aba6b3ea95bb9278e32b7f6e3\",\"dweb:/ipfs/QmXXk7oUaQLcDr5iq5259TJYbG2cTUxxBqHftFH5FLsX1i\"]},\"project:/contracts/Buyer.sol\":{\"keccak256\":\"0xe1da815520de240cb563256c7caea43f9495f7f7aef344f18b461707acb255e2\",\"urls\":[\"bzz-raw://7ca290cc381754142dad10060e0ae29c202f89d9063635f89def4c545ed257dc\",\"dweb:/ipfs/QmUVjcBseuwfh9YBb9eeA7RBfVNgqAgUuDmLCDMH2gYtKH\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161027a38038061027a8339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506101e6806100946000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80631d99885d146100515780635a22ac921461007f578063773dd66c146100ba5780638964e322146100e8575b600080fd5b61007d6004803603602081101561006757600080fd5b8101908080359060200190929190505050610116565b005b6100b86004803603604081101561009557600080fd5b8101908080359060200190929190803560ff169060200190929190505050610119565b005b6100e6600480360360208110156100d057600080fd5b810190808035906020019092919050505061017c565b005b610114600480360360208110156100fe57600080fd5b810190808035906020019092919050505061017f565b005b50565b3360048260ff161115610177576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602f815260200180610183602f913960400191505060405180910390fd5b505050565b50565b5056fe596f7520686176652070617373656420746865206d6178696d756d2062756c6b207075726368617365206c696d6974a265627a7a723158203444c120a7eeb789ee61745b808981010087db96ba2d84e7a52ce035ba8cca5264736f6c63430005110032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80631d99885d146100515780635a22ac921461007f578063773dd66c146100ba5780638964e322146100e8575b600080fd5b61007d6004803603602081101561006757600080fd5b8101908080359060200190929190505050610116565b005b6100b86004803603604081101561009557600080fd5b8101908080359060200190929190803560ff169060200190929190505050610119565b005b6100e6600480360360208110156100d057600080fd5b810190808035906020019092919050505061017c565b005b610114600480360360208110156100fe57600080fd5b810190808035906020019092919050505061017f565b005b50565b3360048260ff161115610177576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602f815260200180610183602f913960400191505060405180910390fd5b505050565b50565b5056fe596f7520686176652070617373656420746865206d6178696d756d2062756c6b207075726368617365206c696d6974a265627a7a723158203444c120a7eeb789ee61745b808981010087db96ba2d84e7a52ce035ba8cca5264736f6c63430005110032",
+  "sourceMap": "54:1455:1:-;;;108:94;8:9:-1;5:2;;;30:1;27;20:12;5:2;108:94:1;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;108:94:1;;;;;;;;;;;;;;;;180:14;162:15;;:32;;;;;;;;;;;;;;;;;;108:94;54:1455;;;;;;",
+  "deployedSourceMap": "54:1455:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;54:1455:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1319:184;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1319:184:1;;;;;;;;;;;;;;;;;:::i;:::-;;570:287;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;570:287:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;920:127;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;920:127:1;;;;;;;;;;;;;;;;;:::i;:::-;;1133:147;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1133:147:1;;;;;;;;;;;;;;;;;:::i;:::-;;1319:184;;:::o;570:287::-;638:10;681:1;669:8;:13;;;;661:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;570:287;;;:::o;920:127::-;;:::o;1133:147::-;;:::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\nimport \"./Account.sol\";\r\n\r\ncontract Buyer {\r\n    Account accountContract;\r\n\r\n    constructor(Account accountAddress) public {\r\n        accountContract = accountAddress;\r\n    }\r\n\r\n    modifier isBuyer(address addr) {\r\n        //require((accountContract.viewAccountRegistered == true) && (accountContract.viewAccountState == Account.status.unverified));\r\n        _;\r\n    }\r\n\r\n    /* Depending on the implementation, these functions may be in a different contract */\r\n\r\n    /* Buy tickets for an event by specifying the eventId and amount*/\r\n    function buyTickets(uint256 eventId, uint8 quantity) public isBuyer(msg.sender) {\r\n        require(quantity <= 4, \"You have passed the maximum bulk purchase limit\");\r\n        //require a cooldown of 24hours before another purchase can be bought\r\n        //include refund mechanism\r\n    }\r\n\r\n    /* Refunds part of the token back to the buyer */\r\n    function refundTickets(uint256 ticketId) public isBuyer(msg.sender) {\r\n        //include refund mechanism using tokenism\r\n    }\r\n\r\n    /* View available tickets for an event that are listed on the platform*/\r\n    function viewListedEvents(uint256 eventId) public view isBuyer(msg.sender) {\r\n        //retrieve eventid from platform & display information\r\n    }\r\n\r\n    /* View tickets bought */\r\n    function viewTicketsBought(uint256 ticketId) public view isBuyer(msg.sender) {\r\n        //requirement: ticketid's owner is the sender\r\n        //retrieve info of a bought ticket\r\n    }\r\n \r\n}",
+  "sourcePath": "C:\\Users\\remus\\Desktop\\3.2\\IS4302\\Project\\contracts\\Buyer.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Buyer.sol",
+    "exportedSymbols": {
+      "Buyer": [
+        165
+      ]
+    },
+    "id": 166,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 96,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "absolutePath": "project:/contracts/Account.sol",
+        "file": "./Account.sol",
+        "id": 97,
+        "nodeType": "ImportDirective",
+        "scope": 166,
+        "sourceUnit": 95,
+        "src": "27:23:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 165,
+        "linearizedBaseContracts": [
+          165
+        ],
+        "name": "Buyer",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 99,
+            "name": "accountContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 165,
+            "src": "76:23:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Account_$94",
+              "typeString": "contract Account"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 98,
+              "name": "Account",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 94,
+              "src": "76:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Account_$94",
+                "typeString": "contract Account"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 108,
+              "nodeType": "Block",
+              "src": "151:51:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 106,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 104,
+                      "name": "accountContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 99,
+                      "src": "162:15:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Account_$94",
+                        "typeString": "contract Account"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 105,
+                      "name": "accountAddress",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 101,
+                      "src": "180:14:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Account_$94",
+                        "typeString": "contract Account"
+                      }
+                    },
+                    "src": "162:32:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Account_$94",
+                      "typeString": "contract Account"
+                    }
+                  },
+                  "id": 107,
+                  "nodeType": "ExpressionStatement",
+                  "src": "162:32:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 109,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 102,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 101,
+                  "name": "accountAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 109,
+                  "src": "120:22:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_Account_$94",
+                    "typeString": "contract Account"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 100,
+                    "name": "Account",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 94,
+                    "src": "120:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Account_$94",
+                      "typeString": "contract Account"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "119:24:1"
+            },
+            "returnParameters": {
+              "id": 103,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "151:0:1"
+            },
+            "scope": 165,
+            "src": "108:94:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 114,
+              "nodeType": "Block",
+              "src": "241:156:1",
+              "statements": [
+                {
+                  "id": 113,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "388:1:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 115,
+            "name": "isBuyer",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 112,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 111,
+                  "name": "addr",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 115,
+                  "src": "227:12:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 110,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "227:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "226:14:1"
+            },
+            "src": "210:187:1",
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 133,
+              "nodeType": "Block",
+              "src": "650:207:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        },
+                        "id": 129,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 127,
+                          "name": "quantity",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 119,
+                          "src": "669:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint8",
+                            "typeString": "uint8"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "hexValue": "34",
+                          "id": 128,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "681:1:1",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_4_by_1",
+                            "typeString": "int_const 4"
+                          },
+                          "value": "4"
+                        },
+                        "src": "669:13:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "596f7520686176652070617373656420746865206d6178696d756d2062756c6b207075726368617365206c696d6974",
+                        "id": 130,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "684:49:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_40b7c46888612bca2cad3f2861e9f0db02b1235f41d544ee2180699b042b8a8f",
+                          "typeString": "literal_string \"You have passed the maximum bulk purchase limit\""
+                        },
+                        "value": "You have passed the maximum bulk purchase limit"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_40b7c46888612bca2cad3f2861e9f0db02b1235f41d544ee2180699b042b8a8f",
+                          "typeString": "literal_string \"You have passed the maximum bulk purchase limit\""
+                        }
+                      ],
+                      "id": 126,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        2924,
+                        2925
+                      ],
+                      "referencedDeclaration": 2925,
+                      "src": "661:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 131,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "661:73:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 132,
+                  "nodeType": "ExpressionStatement",
+                  "src": "661:73:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 134,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 122,
+                      "name": "msg",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2921,
+                      "src": "638:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_message",
+                        "typeString": "msg"
+                      }
+                    },
+                    "id": 123,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sender",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "638:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  }
+                ],
+                "id": 124,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 121,
+                  "name": "isBuyer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 115,
+                  "src": "630:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "630:19:1"
+              }
+            ],
+            "name": "buyTickets",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 120,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 117,
+                  "name": "eventId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "590:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 116,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "590:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 119,
+                  "name": "quantity",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 134,
+                  "src": "607:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 118,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "607:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "589:33:1"
+            },
+            "returnParameters": {
+              "id": 125,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "650:0:1"
+            },
+            "scope": 165,
+            "src": "570:287:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 143,
+              "nodeType": "Block",
+              "src": "988:59:1",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 144,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 139,
+                      "name": "msg",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2921,
+                      "src": "976:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_message",
+                        "typeString": "msg"
+                      }
+                    },
+                    "id": 140,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sender",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "976:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  }
+                ],
+                "id": 141,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 138,
+                  "name": "isBuyer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 115,
+                  "src": "968:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "968:19:1"
+              }
+            ],
+            "name": "refundTickets",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 137,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 136,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 144,
+                  "src": "943:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 135,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "943:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "942:18:1"
+            },
+            "returnParameters": {
+              "id": 142,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "988:0:1"
+            },
+            "scope": 165,
+            "src": "920:127:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 153,
+              "nodeType": "Block",
+              "src": "1208:72:1",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 154,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 149,
+                      "name": "msg",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2921,
+                      "src": "1196:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_message",
+                        "typeString": "msg"
+                      }
+                    },
+                    "id": 150,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sender",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "1196:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  }
+                ],
+                "id": 151,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 148,
+                  "name": "isBuyer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 115,
+                  "src": "1188:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1188:19:1"
+              }
+            ],
+            "name": "viewListedEvents",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 147,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 146,
+                  "name": "eventId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 154,
+                  "src": "1159:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 145,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1159:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1158:17:1"
+            },
+            "returnParameters": {
+              "id": 152,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1208:0:1"
+            },
+            "scope": 165,
+            "src": "1133:147:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 163,
+              "nodeType": "Block",
+              "src": "1396:107:1",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 164,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 159,
+                      "name": "msg",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2921,
+                      "src": "1384:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_magic_message",
+                        "typeString": "msg"
+                      }
+                    },
+                    "id": 160,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "sender",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": null,
+                    "src": "1384:10:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address_payable",
+                      "typeString": "address payable"
+                    }
+                  }
+                ],
+                "id": 161,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 158,
+                  "name": "isBuyer",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 115,
+                  "src": "1376:7:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$_t_address_$",
+                    "typeString": "modifier (address)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1376:19:1"
+              }
+            ],
+            "name": "viewTicketsBought",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 157,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 156,
+                  "name": "ticketId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 164,
+                  "src": "1346:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 155,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1346:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1345:18:1"
+            },
+            "returnParameters": {
+              "id": 162,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1396:0:1"
+            },
+            "scope": 165,
+            "src": "1319:184:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 166,
+        "src": "54:1455:1"
+      }
+    ],
+    "src": "0:1509:1"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/Buyer.sol",
+      "exportedSymbols": {
+        "Buyer": [
+          165
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 96,
+        "name": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 95,
+          "absolutePath": "project:/contracts/Account.sol",
+          "file": "./Account.sol",
+          "scope": 166,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 97,
+        "name": "ImportDirective",
+        "src": "27:23:1"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            165
+          ],
+          "name": "Buyer",
+          "scope": 166
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "accountContract",
+              "scope": 165,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract Account",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "Account",
+                  "referencedDeclaration": 94,
+                  "type": "contract Account"
+                },
+                "id": 98,
+                "name": "UserDefinedTypeName",
+                "src": "76:7:1"
+              }
+            ],
+            "id": 99,
+            "name": "VariableDeclaration",
+            "src": "76:23:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 165,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "accountAddress",
+                      "scope": 109,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract Account",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "Account",
+                          "referencedDeclaration": 94,
+                          "type": "contract Account"
+                        },
+                        "id": 100,
+                        "name": "UserDefinedTypeName",
+                        "src": "120:7:1"
+                      }
+                    ],
+                    "id": 101,
+                    "name": "VariableDeclaration",
+                    "src": "120:22:1"
+                  }
+                ],
+                "id": 102,
+                "name": "ParameterList",
+                "src": "119:24:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 103,
+                "name": "ParameterList",
+                "src": "151:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "contract Account"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 99,
+                              "type": "contract Account",
+                              "value": "accountContract"
+                            },
+                            "id": 104,
+                            "name": "Identifier",
+                            "src": "162:15:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 101,
+                              "type": "contract Account",
+                              "value": "accountAddress"
+                            },
+                            "id": 105,
+                            "name": "Identifier",
+                            "src": "180:14:1"
+                          }
+                        ],
+                        "id": 106,
+                        "name": "Assignment",
+                        "src": "162:32:1"
+                      }
+                    ],
+                    "id": 107,
+                    "name": "ExpressionStatement",
+                    "src": "162:32:1"
+                  }
+                ],
+                "id": 108,
+                "name": "Block",
+                "src": "151:51:1"
+              }
+            ],
+            "id": 109,
+            "name": "FunctionDefinition",
+            "src": "108:94:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "name": "isBuyer",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "addr",
+                      "scope": 115,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 110,
+                        "name": "ElementaryTypeName",
+                        "src": "227:7:1"
+                      }
+                    ],
+                    "id": 111,
+                    "name": "VariableDeclaration",
+                    "src": "227:12:1"
+                  }
+                ],
+                "id": 112,
+                "name": "ParameterList",
+                "src": "226:14:1"
+              },
+              {
+                "children": [
+                  {
+                    "id": 113,
+                    "name": "PlaceholderStatement",
+                    "src": "388:1:1"
+                  }
+                ],
+                "id": 114,
+                "name": "Block",
+                "src": "241:156:1"
+              }
+            ],
+            "id": 115,
+            "name": "ModifierDefinition",
+            "src": "210:187:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "buyTickets",
+              "scope": 165,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "eventId",
+                      "scope": 134,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 116,
+                        "name": "ElementaryTypeName",
+                        "src": "590:7:1"
+                      }
+                    ],
+                    "id": 117,
+                    "name": "VariableDeclaration",
+                    "src": "590:15:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "quantity",
+                      "scope": 134,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint8",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint8",
+                          "type": "uint8"
+                        },
+                        "id": 118,
+                        "name": "ElementaryTypeName",
+                        "src": "607:5:1"
+                      }
+                    ],
+                    "id": 119,
+                    "name": "VariableDeclaration",
+                    "src": "607:14:1"
+                  }
+                ],
+                "id": 120,
+                "name": "ParameterList",
+                "src": "589:33:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 125,
+                "name": "ParameterList",
+                "src": "650:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 115,
+                      "type": "modifier (address)",
+                      "value": "isBuyer"
+                    },
+                    "id": 121,
+                    "name": "Identifier",
+                    "src": "630:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "member_name": "sender",
+                      "referencedDeclaration": null,
+                      "type": "address payable"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 2921,
+                          "type": "msg",
+                          "value": "msg"
+                        },
+                        "id": 122,
+                        "name": "Identifier",
+                        "src": "638:3:1"
+                      }
+                    ],
+                    "id": 123,
+                    "name": "MemberAccess",
+                    "src": "638:10:1"
+                  }
+                ],
+                "id": 124,
+                "name": "ModifierInvocation",
+                "src": "630:19:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_40b7c46888612bca2cad3f2861e9f0db02b1235f41d544ee2180699b042b8a8f",
+                                  "typeString": "literal_string \"You have passed the maximum bulk purchase limit\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                2924,
+                                2925
+                              ],
+                              "referencedDeclaration": 2925,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 126,
+                            "name": "Identifier",
+                            "src": "661:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_uint8",
+                                "typeString": "uint8"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "<=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 119,
+                                  "type": "uint8",
+                                  "value": "quantity"
+                                },
+                                "id": 127,
+                                "name": "Identifier",
+                                "src": "669:8:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "34",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 4",
+                                  "value": "4"
+                                },
+                                "id": 128,
+                                "name": "Literal",
+                                "src": "681:1:1"
+                              }
+                            ],
+                            "id": 129,
+                            "name": "BinaryOperation",
+                            "src": "669:13:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "596f7520686176652070617373656420746865206d6178696d756d2062756c6b207075726368617365206c696d6974",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"You have passed the maximum bulk purchase limit\"",
+                              "value": "You have passed the maximum bulk purchase limit"
+                            },
+                            "id": 130,
+                            "name": "Literal",
+                            "src": "684:49:1"
+                          }
+                        ],
+                        "id": 131,
+                        "name": "FunctionCall",
+                        "src": "661:73:1"
+                      }
+                    ],
+                    "id": 132,
+                    "name": "ExpressionStatement",
+                    "src": "661:73:1"
+                  }
+                ],
+                "id": 133,
+                "name": "Block",
+                "src": "650:207:1"
+              }
+            ],
+            "id": 134,
+            "name": "FunctionDefinition",
+            "src": "570:287:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "refundTickets",
+              "scope": 165,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 144,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 135,
+                        "name": "ElementaryTypeName",
+                        "src": "943:7:1"
+                      }
+                    ],
+                    "id": 136,
+                    "name": "VariableDeclaration",
+                    "src": "943:16:1"
+                  }
+                ],
+                "id": 137,
+                "name": "ParameterList",
+                "src": "942:18:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 142,
+                "name": "ParameterList",
+                "src": "988:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 115,
+                      "type": "modifier (address)",
+                      "value": "isBuyer"
+                    },
+                    "id": 138,
+                    "name": "Identifier",
+                    "src": "968:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "member_name": "sender",
+                      "referencedDeclaration": null,
+                      "type": "address payable"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 2921,
+                          "type": "msg",
+                          "value": "msg"
+                        },
+                        "id": 139,
+                        "name": "Identifier",
+                        "src": "976:3:1"
+                      }
+                    ],
+                    "id": 140,
+                    "name": "MemberAccess",
+                    "src": "976:10:1"
+                  }
+                ],
+                "id": 141,
+                "name": "ModifierInvocation",
+                "src": "968:19:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 143,
+                "name": "Block",
+                "src": "988:59:1"
+              }
+            ],
+            "id": 144,
+            "name": "FunctionDefinition",
+            "src": "920:127:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "viewListedEvents",
+              "scope": 165,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "eventId",
+                      "scope": 154,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 145,
+                        "name": "ElementaryTypeName",
+                        "src": "1159:7:1"
+                      }
+                    ],
+                    "id": 146,
+                    "name": "VariableDeclaration",
+                    "src": "1159:15:1"
+                  }
+                ],
+                "id": 147,
+                "name": "ParameterList",
+                "src": "1158:17:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 152,
+                "name": "ParameterList",
+                "src": "1208:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 115,
+                      "type": "modifier (address)",
+                      "value": "isBuyer"
+                    },
+                    "id": 148,
+                    "name": "Identifier",
+                    "src": "1188:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "member_name": "sender",
+                      "referencedDeclaration": null,
+                      "type": "address payable"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 2921,
+                          "type": "msg",
+                          "value": "msg"
+                        },
+                        "id": 149,
+                        "name": "Identifier",
+                        "src": "1196:3:1"
+                      }
+                    ],
+                    "id": 150,
+                    "name": "MemberAccess",
+                    "src": "1196:10:1"
+                  }
+                ],
+                "id": 151,
+                "name": "ModifierInvocation",
+                "src": "1188:19:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 153,
+                "name": "Block",
+                "src": "1208:72:1"
+              }
+            ],
+            "id": 154,
+            "name": "FunctionDefinition",
+            "src": "1133:147:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "name": "viewTicketsBought",
+              "scope": 165,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "ticketId",
+                      "scope": 164,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 155,
+                        "name": "ElementaryTypeName",
+                        "src": "1346:7:1"
+                      }
+                    ],
+                    "id": 156,
+                    "name": "VariableDeclaration",
+                    "src": "1346:16:1"
+                  }
+                ],
+                "id": 157,
+                "name": "ParameterList",
+                "src": "1345:18:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 162,
+                "name": "ParameterList",
+                "src": "1396:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 115,
+                      "type": "modifier (address)",
+                      "value": "isBuyer"
+                    },
+                    "id": 158,
+                    "name": "Identifier",
+                    "src": "1376:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "member_name": "sender",
+                      "referencedDeclaration": null,
+                      "type": "address payable"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 2921,
+                          "type": "msg",
+                          "value": "msg"
+                        },
+                        "id": 159,
+                        "name": "Identifier",
+                        "src": "1384:3:1"
+                      }
+                    ],
+                    "id": 160,
+                    "name": "MemberAccess",
+                    "src": "1384:10:1"
+                  }
+                ],
+                "id": 161,
+                "name": "ModifierInvocation",
+                "src": "1376:19:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 163,
+                "name": "Block",
+                "src": "1396:107:1"
+              }
+            ],
+            "id": 164,
+            "name": "FunctionDefinition",
+            "src": "1319:184:1"
+          }
+        ],
+        "id": 165,
+        "name": "ContractDefinition",
+        "src": "54:1455:1"
+      }
+    ],
+    "id": 166,
+    "name": "SourceUnit",
+    "src": "0:1509:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.17+commit.d19bba13.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-03-17T19:02:39.845Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

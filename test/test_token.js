@@ -10,7 +10,7 @@ contract("EventToken", function (accounts) {
         eventTokenInstance = await EventToken.deployed();
     });
     
-    console.log("Testing EventToken contract");
+    console.log("Testing EventToken Functions contract");
 
     it("Mint Event Token", async () => {
         let totalSupplyBefore = await eventTokenInstance.getCurrentSupply({from: accounts[1]});
