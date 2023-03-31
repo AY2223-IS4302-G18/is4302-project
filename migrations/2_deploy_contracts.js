@@ -16,7 +16,7 @@ module.exports = async (deployer, network, account) => {
         return deployer.deploy(Account)
     })
     .then(function () {
-        return deployer.deploy(Auction)
+        return deployer.deploy(Auction, Ticket.address)
     })
     .then(function () {
         return deployer.deploy(Platform, Account.address, EventToken.address, Event.address, Auction.address)

@@ -1,8 +1,15 @@
 pragma solidity ^0.5.0;
 
+import "./Ticket.sol";
+
 contract Auction {
 
-    address platform;
+    address platformContract;
+    Ticket ticketContract;
+
+    constructor(Ticket ticketAddress) public {
+        ticketContract = ticketAddress;
+    }
 
     struct Bidder {
         address id;
@@ -14,43 +21,64 @@ contract Auction {
         Bidder[] bidders;
         mapping(address => uint256) bidderList;
         mapping(address => uint8) ticketCount;
+        mapping(address => uint8) initialCount;
     }
 
     mapping(uint256 => Bidding) private biddings;
+    mapping(uint256 => bool) private biddingOpen;
 
     /* Ensure caller is a Platform */
     modifier isPlatform() {
-        require(msg.sender == platform);
+        require(msg.sender == platformContract);
+        _;
+    }
+
+    /* Ensure bidding is open */
+    modifier isOpen(uint256 _eventId) {
+        require(biddingOpen[_eventId]);
+        _;
+    }
+
+    /* Ensure bidding is closed */
+    modifier isClosed(uint256 _eventId) {
+        require(!biddingOpen[_eventId]);
         _;
     }
 
     function setPlatformAddress(address _platform) external {
-        require(platform == address(0), "Changing platform address is not allowed");
-        platform = _platform;
+        require(platformContract == address(0), "Changing platform address is not allowed");
+        platformContract = _platform;
     }
 
     function createBidding(uint256 _eventId, uint256 _maxTickets) external {
         Bidding storage newBidding = biddings[_eventId];
         newBidding.maxTickets = _maxTickets;
+        biddingOpen[_eventId] = true;
     }
 
-    function placeBid(uint256 _eventId, address _userAddr, uint256 _bid, uint8 _qty) public {
+    function placeBid(uint256 _eventId, address _userAddr, uint256 _bid, uint8 _qty) isOpen(_eventId) external {
         Bidding storage currentBidding = biddings[_eventId];
+        require(currentBidding.ticketCount[_userAddr] == 0, "User has already placed a bid");
 
         for (uint8 i = 0; i < _qty; i++){
             currentBidding.bidders.push(Bidder(_userAddr, _bid));
             insertBidder(currentBidding);
         }
         
+        currentBidding.initialCount[_userAddr] = _qty;
         currentBidding.ticketCount[_userAddr] = _qty;
+        currentBidding.bidderList[_userAddr] = _bid;
 
         while (currentBidding.bidders.length > currentBidding.maxTickets) {
             removeMinimum(currentBidding);
         }
     }
 
-    function updateBid(uint256 _eventId, address _userAddr, uint256 _bid, uint8 _qty) public {
+    function updateBid(uint256 _eventId, address _userAddr, uint256 _bid, uint8 _qty) isOpen(_eventId) external {
         Bidding storage currentBidding = biddings[_eventId];
+
+        require(_bid > currentBidding.bidderList[_userAddr], "new bid has to be higher then current bid");
+
         uint8 userTicketCount = currentBidding.ticketCount[_userAddr];
 
         if (userTicketCount > 0) {
@@ -68,15 +96,25 @@ contract Auction {
         }
         
         currentBidding.ticketCount[_userAddr] = _qty;
+        currentBidding.bidderList[_userAddr] = _bid;
 
         while (currentBidding.bidders.length > currentBidding.maxTickets) {
             removeMinimum(currentBidding);
         }
     }
 
-    // function closeAuction(uint256 eventId) isPlatform() external {
+    function closeAuction(uint256 _eventId) isPlatform() external {
+        biddingOpen[_eventId] = true;
+    }
 
-    // }
+    function grantTickets(uint256 _eventId) isPlatform() isClosed(_eventId) external {
+        Bidding storage currentBidding = biddings[_eventId];
+        uint256 n = currentBidding.bidders.length;
+
+        for (uint256 i = 0; i < n; i++){
+            ticketContract.grantTicket(_eventId, currentBidding.bidders[i].id);
+        }
+    }
 
     // TEST FUNCTION
     event bidVal(address _id, uint256 _bid);
@@ -152,6 +190,10 @@ contract Auction {
 
     function right_child(uint256 i) private pure returns (uint256) {
         return (2*i)+2;
+    }
+
+    function getFailedBids(uint256 _eventId, address _userAddr) public view returns (uint256) {
+        return (biddings[_eventId].initialCount[_userAddr]-biddings[_eventId].ticketCount[_userAddr]);
     }
 
 }

@@ -14,21 +14,4 @@ contract("Auction", function (accounts) {
     it("Platform address change", async () => {
         await truffleAssert.reverts(auctionInstance.setPlatformAddress(auctionInstance.address));        
     });
-
-    it("Test minHeap", async () => {
-        await auctionInstance.createBidding(0, 3);
-        await auctionInstance.placeBid(0, accounts[1], 5);
-        await auctionInstance.placeBid(0, accounts[1], 10);
-        await auctionInstance.placeBid(0, accounts[1], 50);
-        await auctionInstance.placeBid(0, accounts[1], 1);
-        await auctionInstance.placeBid(0, accounts[1], 20);
-        await auctionInstance.placeBid(0, accounts[1], 30);
-        await auctionInstance.placeBid(0, accounts[1], 40);
-        await auctionInstance.placeBid(0, accounts[1], 1);
-        // console.log(">>>");
-        // await auctionInstance.getBidders(0, 0);
-        // await auctionInstance.getBidders(0, 1);
-        // await auctionInstance.getBidders(0, 2);
-        // print();
-    });
 })

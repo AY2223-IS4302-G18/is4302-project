@@ -28,6 +28,8 @@ contract Ticket {
 
     uint256 public numTickets = 0;  // Total number of tickets
     mapping(uint256 => ticket) public tickets;  // Stores ticket
+    mapping(uint256 => uint256[]) public eventTickets;  // Tracks event tickets
+    mapping(uint256 => uint256) public nxtTicket;  // Next ticket to grant
 
     // modifier to ensure a function is callable only by its owner    
     modifier ownerOnly(uint256 ticketId) {
@@ -63,6 +65,7 @@ contract Ticket {
 
         uint256 newTicketId = numTickets++;
         tickets[newTicketId] = newTicket;
+        eventTickets[eventId].push(newTicketId);
 
         return newTicketId;
     }
@@ -76,6 +79,12 @@ contract Ticket {
     function transferTicket(uint256 ticketId, address transferTo) public validTicketId(ticketId) ownerOnly(ticketId) {
         tickets[ticketId].prevowner = tickets[ticketId].owner;
         tickets[ticketId].owner = transferTo;
+    }
+
+    function grantTicket(uint256 eventId, address grantTo) external {
+        require(eventTickets[eventId].length >= (nxtTicket[eventId]+1), "Insufficient tickets to grant");
+        transferTicket(eventTickets[eventId][nxtTicket[eventId]], grantTo);
+        nxtTicket[eventId]++;
     }
 
     /**
