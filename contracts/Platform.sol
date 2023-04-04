@@ -15,6 +15,7 @@ contract Platform {
 
     event BidCommenced (uint256 eventId);
     event BidPlaced (uint256 eventId, address buyer, uint256 tokenBid);
+    event BidUpdated (uint256 eventId, address buyer, uint256 tokenBid);
     event BidBuy (uint256 eventId);
     event TransferToBuyerSuccessful(address to, uint256 amount);
 
@@ -107,8 +108,17 @@ contract Platform {
         emit BidBuy(eventId);
     }
 
-    function updateBidding(uint256 eventId, uint8 quantity, uint256 tokenBid) public payable isBuyer() {
-        auctionContract.updateBid(eventId, msg.sender, tokenBid, quantity);
+    function updateBidding(uint256 eventId, uint256 tokenBid) public payable isBuyer() {
+        uint256 curBid = auctionContract.getCurrentBid(eventId, msg.sender);
+        uint8 qty = auctionContract.getTicketInitialCount(eventId, msg.sender);
+        require(tokenBid > curBid, "new bid has to be higher then current bid");
+
+        uint256 reqTokens = (tokenBid - curBid) * qty;
+        require(eventTokenContract.checkAllowance(msg.sender, address(this)) >= reqTokens, "Buyer has not approved sufficient EventTokens");
+        
+        eventTokenContract.approvedTransferFrom(msg.sender, address(this), address(this), reqTokens);
+        auctionContract.updateBid(eventId, msg.sender, tokenBid, qty);
+        emit BidUpdated(eventId, msg.sender, tokenBid);
     }
 
     // Return unsuccessful bidders their corresponding ETH and tokens
@@ -168,6 +178,10 @@ contract Platform {
 
     function returnEth(address payable _to, uint256 _val) public payable {
         _to.transfer(_val);
+    }
+
+    function getBidders(uint256 _eventId) public {
+        auctionContract.getBidders(_eventId);
     }
 
 }

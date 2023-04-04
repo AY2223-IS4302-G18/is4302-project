@@ -78,21 +78,29 @@ contract Auction {
         }
     }
 
+    event updateVal(address _id, uint256 _bid);
+    event initialQty(uint256 _bid);
+    event eaddr(address addr, uint256 bid);
     function updateBid(uint256 _eventId, address _userAddr, uint256 _bid, uint8 _qty) isOpen(_eventId) external {
         Bidding storage currentBidding = biddings[_eventId];
 
         require(_bid > currentBidding.bidderList[_userAddr], "new bid has to be higher then current bid");
 
         uint8 userTicketCount = currentBidding.ticketCount[_userAddr];
-
+        emit eaddr(_userAddr, 0);
+        emit initialQty(_qty);
+        emit updateVal(_userAddr, userTicketCount);
         if (userTicketCount > 0) {
            for (uint8 i = 0; i < currentBidding.bidders.length; i++){
+                emit eaddr(currentBidding.bidders[i].id, currentBidding.bidders[i].bid);
                 if (currentBidding.bidders[i].id == _userAddr) {
                     currentBidding.bidders[i].bid = _bid;
                     minHeapify(currentBidding, i);
                 }
             }
         }
+
+        getBidders(_eventId);
 
         for (uint8 i = userTicketCount; i < _qty; i++){
             currentBidding.bidders.push(Bidder(_userAddr, _bid));
@@ -199,6 +207,16 @@ contract Auction {
 
     function getFailedBids(uint256 _eventId, address _userAddr) public view returns (uint256) {
         return (biddings[_eventId].initialCount[_userAddr]-biddings[_eventId].ticketCount[_userAddr]);
+    }
+
+    function getCurrentBid(uint256 _eventId, address _userAddr) public view returns (uint256) {
+        Bidding storage currentBidding = biddings[_eventId];
+        return currentBidding.bidderList[_userAddr];
+    }
+
+    function getTicketInitialCount(uint256 _eventId, address _userAddr) public view returns (uint8) {
+        Bidding storage currentBidding = biddings[_eventId];
+        return currentBidding.initialCount[_userAddr];
     }
 
 }
