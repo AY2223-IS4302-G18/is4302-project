@@ -243,10 +243,7 @@ contract("Platform", function (accounts) {
         const acc4token = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[4]}));
         await assert(acc4token.isEqualTo(BigNumber(6)), "EventToken not minted");
 
-        // accounts[2] approve Platform contract to use 5 tokens and place bid for 1 ticket with 5 tokens each
-        await eventTokenInstance.approveToken(platformInstance.address, 5, {from: accounts[2]}); 
-        let acc2allowance = new BigNumber(await eventTokenInstance.checkAllowance(accounts[2], platformInstance.address, {from: accounts[2]}));
-        await assert(acc2allowance.isEqualTo(BigNumber(5)), "EventToken not approved");
+        // accounts[2] place bid for 1 ticket with 5 tokens each
         let bidPlaced1 = await platformInstance.placeBid(latestEventId, 1, 5, {from: accounts[2], value: oneEth});
         truffleAssert.eventEmitted(bidPlaced1, "BidPlaced");
 
@@ -254,16 +251,17 @@ contract("Platform", function (accounts) {
         let bidPlaced2 = await platformInstance.placeBid(latestEventId, 2, 0, {from: accounts[3], value: oneEth});
         truffleAssert.eventEmitted(bidPlaced2, "BidPlaced");
 
-        // accounts[4] approve Platfrom contract to use 6 tokens and place bid for 3 tickets with 2 token each 
-        await eventTokenInstance.approveToken(platformInstance.address, 6, {from: accounts[4]}); 
-        let acc4allowance = new BigNumber(await eventTokenInstance.checkAllowance(accounts[4], platformInstance.address, {from: accounts[4]}));
-        await assert(acc4allowance.isEqualTo(BigNumber(6)), "EventToken not approved");
+        // accounts[4] place bid for 3 tickets with 2 token each 
         let bidPlaced3 = await platformInstance.placeBid(latestEventId, 3, 2, {from: accounts[4], value: oneEth}); 
         truffleAssert.eventEmitted(bidPlaced3, "BidPlaced");
 
-        // Ensure that platform EventToken amount is consistent
-        const acc0token = new BigNumber(await eventTokenInstance.checkEventTokenOf(Platform.address, {from: accounts[0]}));
-        await assert(acc0token.isEqualTo(BigNumber(11)), "EventToken not transfered to Platform");
+        // Ensure that account EventToken amount is consistent
+        const acc2token1 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[2]}));
+        await assert(acc2token1.isEqualTo(BigNumber(0)), "EventToken not burned");
+        const acc3token1 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[3]}));
+        await assert(acc3token1.isEqualTo(BigNumber(0)), "EventToken not burned");
+        const acc4token1 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[4]}));
+        await assert(acc4token1.isEqualTo(BigNumber(0)), "EventToken not burned");
    
         // Close bid
         let bidClosed = await platformInstance.closeBidding(latestEventId, {from: accounts[1]});
@@ -288,6 +286,15 @@ contract("Platform", function (accounts) {
         // Owner confirms event ended and release sales and deposit to seller
         let ownerEnd = await platformInstance.endSuccessfulEvent(latestEventId, {from: accounts[0]});
         truffleAssert.eventEmitted(ownerEnd, "OwnerEventEnd");
+
+        // Check that accounts recieved tokens earn from attending event
+        const acc2token2 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[2]}));
+        await assert(acc2token2.isEqualTo(BigNumber(1)), "EventToken not minted");
+        const acc3token2 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[3]}));
+        await assert(acc3token2.isEqualTo(BigNumber(1)), "EventToken not minted");
+        const acc4token2 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[4]}));
+        await assert(acc4token2.isEqualTo(BigNumber(3)), "EventToken not minted");
+
     });
 
     it("Test Updating of Bid", async () => {
@@ -301,9 +308,9 @@ contract("Platform", function (accounts) {
         let bidCommenced = await platformInstance.commenceBidding(latestEventId, {from: accounts[1]});
         truffleAssert.eventEmitted(bidCommenced, "BidCommenced");
         
-        // Generate token for accounts[2],[3] with 5,6 correspondingly
-        await eventTokenInstance.getTokenForTesting(accounts[2], 5, {from: accounts[0]});
-        await eventTokenInstance.getTokenForTesting(accounts[3], 6, {from: accounts[0]});
+        // Generate token for accounts[2],[3] with 4,5 correspondingly due to them earning tokens from event end previously
+        await eventTokenInstance.getTokenForTesting(accounts[2], 4, {from: accounts[0]});
+        await eventTokenInstance.getTokenForTesting(accounts[3], 5, {from: accounts[0]});
         const acc2token = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[2]}));
         await assert(acc2token.isEqualTo(BigNumber(5)), "EventToken not minted");
         const acc3token = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[3]}));
@@ -313,23 +320,19 @@ contract("Platform", function (accounts) {
         let bidPlaced1 = await platformInstance.placeBid(latestEventId, 1, 0, {from: accounts[3], value: oneEth});
         truffleAssert.eventEmitted(bidPlaced1, "BidPlaced");
 
-        // accounts[2] approve Platform contract to use 5 tokens and place bid for 1 ticket with 5 tokens each
-        await eventTokenInstance.approveToken(platformInstance.address, 5, {from: accounts[2]}); 
-        let acc2allowance = new BigNumber(await eventTokenInstance.checkAllowance(accounts[2], platformInstance.address, {from: accounts[2]}));
-        await assert(acc2allowance.isEqualTo(BigNumber(5)), "EventToken not approved");
+        // accounts[2] place bid for 1 ticket with 5 tokens each
         let bidPlaced2 = await platformInstance.placeBid(latestEventId, 1, 5, {from: accounts[2], value: oneEth});
         truffleAssert.eventEmitted(bidPlaced2, "BidPlaced");
 
-        // accounts[3] approve Platform contract to use 6 tokens and update bid for 1 ticket with 6 tokens each
-        await eventTokenInstance.approveToken(platformInstance.address, 6, {from: accounts[3]}); 
-        let acc3allowance = new BigNumber(await eventTokenInstance.checkAllowance(accounts[3], platformInstance.address, {from: accounts[3]}));
-        await assert(acc3allowance.isEqualTo(BigNumber(6)), "EventToken not approved");
+        // accounts[3] update bid for 1 ticket with 6 tokens each
         let updateBid1 = await platformInstance.updateBid(latestEventId, 6, {from: accounts[3]});
         truffleAssert.eventEmitted(updateBid1, "BidUpdate");
 
-        // Ensure that platform EventToken amount is consistent
-        const acc0token = new BigNumber(await eventTokenInstance.checkEventTokenOf(Platform.address, {from: accounts[0]}));
-        await assert(acc0token.isEqualTo(BigNumber(22)), "EventToken not transfered to Platform");
+        // Ensure that account EventToken amount is consistent
+        const acc2token1 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[2]}));
+        await assert(acc2token1.isEqualTo(BigNumber(0)), "EventToken not burned");
+        const acc3token1 = new BigNumber(await eventTokenInstance.checkEventToken({from: accounts[3]}));
+        await assert(acc3token1.isEqualTo(BigNumber(0)), "EventToken not burned");
    
         // Close bid
         let bidClosed = await platformInstance.closeBidding(latestEventId, {from: accounts[1]});
@@ -519,7 +522,7 @@ contract("Platform", function (accounts) {
         let finalSellerBalance = new BigNumber(await web3.eth.getBalance(accounts[1]));
 
         // Seller takes 95% of ticket sales
-        let sellerTicketSales = new BigNumber(95 * 4 * 65 / 100);
+        let sellerTicketSales = new BigNumber(95 * 4 * 65 * 50000 / 100);
 
         // initialSellerBalance + sellerTicketSales + depositedEth = finalSellerBalance
         initialSellerBalance = initialSellerBalance.plus(sellerTicketSales).plus(oneEth);
@@ -562,7 +565,7 @@ contract("Platform", function (accounts) {
 
         let finalPlatformBalance = new BigNumber(await accountInstance.getBalance(platformInstance.address));
 
-        let platformCommission = new BigNumber(5 * 4 * 65 / 100);
+        let platformCommission = new BigNumber(5 * 4 * 65 * 50000/ 100);
 
         // platformOriginalBalance + sellerTicketSales + depositedEth = finalPlatformBalance
         platformOriginalBalance = platformOriginalBalance.plus(platformCommission);

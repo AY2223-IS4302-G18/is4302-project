@@ -78,7 +78,7 @@ contract Platform {
         uint256 capacity,
         uint256 priceOfTicket,
         address seller) public payable isOrganiser() returns (uint256) {
-
+        // price of ticket here will be multiply by 50,000 wei when seller list so when buyer wants to buy, they have to send in the amount of wei required
         // however msg.value here will not be sent to event contract. msg.value at event contract is 0.
         require(msg.value >= calMinimumDeposit(capacity,priceOfTicket) * 1 wei, "Insufficient deposits. Need deposit minimum (capacity * priceOfTicket)/2 * 50000 wei to list event.");
 
@@ -114,10 +114,9 @@ contract Platform {
         require(msg.value >= eventContract.getEventTicketPrice(eventId) * quantity, "Buyer has insufficient ETH");
         require(eventTokenContract.checkEventTokenOf(msg.sender) >= tokenBid * quantity, "Buyer has insufficient EventTokens");
         
-        // Transfer tokenBid & ETH to contract
+        // Burn tokenBid & Transfer ETH to contract
         if (tokenBid > 0) {
-            require(eventTokenContract.checkAllowance(msg.sender, address(this)) >= tokenBid * quantity, "Buyer has not approved sufficient EventTokens");
-            eventTokenContract.approvedTransferFrom(msg.sender, address(this), tokenBid * quantity);
+            eventTokenContract.burnToken(tokenBid * quantity, msg.sender);
         }
         msg.sender.transfer(msg.value - (eventContract.getEventTicketPrice(eventId) * quantity)); // transfer remaining back to buyer
     
@@ -154,11 +153,11 @@ contract Platform {
         require(currentBidInfo.quantity != 0, "Cant update bid without placing bid first");
         require(tokenBid > currentBidInfo.tokenPerTicket, "New token bid must be higher than current bid");
 
-        // Calculate additional tokens needed and transfer event tokens
+        // Calculate additional tokens needed and burn event tokens
         uint256 tokenDifference = tokenBid - currentBidInfo.tokenPerTicket;
         uint256 totalTokenDifference = tokenDifference * currentBidInfo.quantity;
-        require(eventTokenContract.checkAllowance(msg.sender, address(this)) >= totalTokenDifference, "Buyer has not approved sufficient EventTokens");
-        eventTokenContract.approvedTransferFrom(msg.sender, address(this), totalTokenDifference);
+        require(eventTokenContract.checkEventTokenOf(msg.sender) >= totalTokenDifference, "Buyer has insufficient EventTokens to update bid");
+        eventTokenContract.burnToken(totalTokenDifference, msg.sender);
 
         // Delete old bid
         for (uint256 i = currentBidInfo.firstIndexForEventBiddings; i < currentBidInfo.firstIndexForEventBiddings + currentBidInfo.quantity; i++) {
@@ -325,6 +324,15 @@ contract Platform {
         // Platform keeps 5% commission of ticket sales, rest goes to Seller when event ends
         uint256 sellerProfits = 95 * ticketSales /100;
         addr.transfer(sellerProfits);
+
+        // Mint tokens for those who owns ticket
+        uint256 firstTicketId = eventContract.getEventFirstTicketId(eventId);
+        for (uint256 i=firstTicketId; i < firstTicketId + eventContract.getEventCapacity(eventId); i++) {
+            address _to = ticketContract.getTicketOwner(i);
+            uint256 ticketPrice = ticketContract.getTicketPrice(i);
+            uint256 amtOfWei = (ticketPrice / 100) * 5;
+            eventTokenContract.mintToken(amtOfWei, _to);
+        }
 
         eventContract.setEventState(eventId, Event.eventState.platformEventEnd);
         emit OwnerEventEnd(eventId);

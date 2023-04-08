@@ -27,7 +27,7 @@ contract Event {
      * param dataAndTime    date and time of event
      * param capacity       capacity of event
      * param ticketsLeft    event tickets left 
-     * param priceOfTicket  price of ticket
+     * param priceOfTicket  price of ticket will be seller list price * 50,000 wei
      * param seller         organiser / seller of event ticket   
     * param eventState     state of event: initial, bidding, buyAndRefund, sellerEventEnd, platformEventEnd
      * param firstTicketId  id of first ticket sold
@@ -61,7 +61,7 @@ contract Event {
      * param year, month, day, hour, minute, second     date and time of event
      * param capacity                                   capacity of event
      * param ticketsLeft                                event tickets left 
-     * param priceOfTicket                              price of ticket
+     * param priceOfTicket                              price of ticket by seller
      * param seller                                     organiser / seller of event ticket   
      */
     function createEvent(
@@ -73,6 +73,7 @@ contract Event {
         address seller
     ) public returns (uint256) {
         require(DateTime.timestampFromDateTime(year, month, day, hour, minute, second) > now, "Invalid Date and Time");
+        uint256 priceOfTicketInWei = priceOfTicket * 50000;
 
         eventObj memory newEvent = eventObj(
             title,
@@ -80,7 +81,7 @@ contract Event {
             DateTime.timestampFromDateTime(year, month, day, hour, minute, second),
             capacity,
             capacity,
-            priceOfTicket,
+            priceOfTicketInWei,
             seller,
             eventState.initial,
             0
@@ -90,7 +91,7 @@ contract Event {
         events[newEventId] = newEvent;
 
         // Generate Tickets
-        uint256 firstTicketId = generateEventTickets(msg.sender, newEventId, priceOfTicket, Ticket.category.standard, capacity);
+        uint256 firstTicketId = generateEventTickets(msg.sender, newEventId, priceOfTicketInWei, Ticket.category.standard, capacity);
 
         setEventFirstTicketId(newEventId, firstTicketId);
 
