@@ -128,7 +128,7 @@ The event details will then be passed to the event contract for the creation of 
     * This phase marks the end of a successful event where ETH will be released to seller.
 
 #### Commence Bidding
-Commence bidding function changes the event bid state to “bidding”, allowing buyers to start bidding for the ticket. Only the original organiser is allowed to commence bidding and bid state must be “initial” when this function is called, after which bid state will be changed to “bidding”.
+Commence bidding function changes the event state to “bidding”, allowing buyers to start bidding for the ticket. Only the original organiser is allowed to commence bidding and event state must be “initial” when this function is called, after which event state will be changed to “bidding”.
 ```
 eventContract.setEventState(eventId, Event.eventState.bidding);
 ```
@@ -141,7 +141,7 @@ PlatformContract.placeBid(uint256 eventId, uint256 quantity, uint256 tokenBid)
 ```
 
 The following conditions must be met for a buyer to successfully bid for tickets to an event:  
-1. Event must be a valid and ongoing, with bid state set as “bidding".
+1. Event must be a valid and ongoing, with event state set as “bidding".
 2. Buyers can place a bid for a minimum of 1 ticket, and up to a maximum of 4 tickets. This is to prevent scalpers from bulk bidding event tickets.
 3. Buyer can place a bid using a minimum of 0 EventTokens to use for bidding. If a buyers to bid using EventTokens, the buyer must have sufficient EventTokens specified in tokenBid parameter to place the bid as EventTokens are collected upon placing of bid.
 4. Buyers must have sufficient ETH specified in msg.value to place the bid for desired amount of tickets as ETH is collected upon placing of bid.
@@ -180,7 +180,7 @@ PlatformContract.buyTickets(uint256 eventId, uint8 quantity)
 ```
 
 The following conditions must be met for a buyer to successfully buy tickets to an event:
-1. Event must be a valid and ongoing, with bid state set as “buyAndRefund”
+1. Event must be a valid and ongoing, with event state set as “buyAndRefund”
 2. Buyers can buy a minimum of 1 ticket, and up to a maximum of 4 tickets. This is to prevent scalpers from bulk buying event tickets and reselling at a higher price.
 3. Buyers can only buy tickets if there are still tickets available for sale.
 4. Buyer has sufficient ether to buy the desired amount of tickets
