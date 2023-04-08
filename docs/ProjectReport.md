@@ -99,20 +99,6 @@ The team understand that this solution is not a full-proof solution to the oracl
 
 Improvements to this implementation would be implementing ASTRAEA with voting and certifying process. This involves multiple stakeholders in the validation process and ensures that the entire voting process is fair. Stakeholders will also be incentivised or penalised depending on their validation result and whether they are a voter or certifer. However, this idea would be pushed for future developments due to time constraints.
 
-#### Listing events
-To list an event, the organiser has to specify the venue year, month, day, hour, minute, second, capacity, its address and ticket price details of the event to be held. 
-```
-PlatformContract.listEvent(string memory title,
-        string memory venue,
-        uint256 year, uint256 month, uint256 day, uint256 hour, uint256 minute, uint256 second,
-        uint256 capacity,
-        uint256 priceOfTicket,
-        address seller)
-```
-Only a verified accounts can act as an organiser and list events on the platform. Organiser has to also make a deposit of half the total ticket sales (capacity * priceOfTicket / 2) to list an event. This is to prevent the organiser from irresponsibly creating and cancelling an event. 
-
-The event details will then be passed to the event contract for the creation of the actual event object. Event tickets will also be generated and mapped to the newly created eventId.
-
 ### Ticket Sale System
  Our application adopts a state machine model to represent different behavioural contract stages and use state transitions to control the execution flow of the program. There are 4 main phases in our ticketing sales system that every event listed on the platform will undergo.
 
@@ -126,6 +112,20 @@ The event details will then be passed to the event contract for the creation of 
     * In this phase, buyers can perform normal purchasing of leftover available tickets and refunding of tickets is also possible through the platform. 
 4. End Phase
     * This phase marks the end of a successful event where ETH will be released to seller.
+
+#### Listing events
+To list an event, the organiser has to specify the venue year, month, day, hour, minute, second, capacity, its address and ticket price details of the event to be held. 
+```
+PlatformContract.listEvent(string memory title,
+        string memory venue,
+        uint256 year, uint256 month, uint256 day, uint256 hour, uint256 minute, uint256 second,
+        uint256 capacity,
+        uint256 priceOfTicket,
+        address seller)
+```
+Only a verified accounts can act as an organiser and list events on the platform. Organiser has to also make a deposit of half the total ticket sales (capacity * priceOfTicket / 2) to list an event. This is to prevent the organiser from irresponsibly creating and cancelling an event. 
+
+The event details will then be passed to the event contract for the creation of the actual event object. Event tickets will also be generated and mapped to the newly created eventId.
 
 #### Commence Bidding
 Commence bidding function changes the event state to “bidding”, allowing buyers to start bidding for the ticket. Only the original organiser is allowed to commence bidding and event state must be “initial” when this function is called, after which event state will be changed to “bidding”.
@@ -183,7 +183,7 @@ The following conditions must be met for a buyer to successfully buy tickets to 
 1. Event must be a valid and ongoing, with event state set as “buyAndRefund”
 2. Buyers can buy a minimum of 1 ticket, and up to a maximum of 4 tickets. This is to prevent scalpers from bulk buying event tickets and reselling at a higher price.
 3. Buyers can only buy tickets if there are still tickets available for sale.
-4. Buyer has sufficient ether to buy the desired amount of tickets
+4. Buyer has sufficient ETH to buy the desired amount of tickets
 
 #### Ticket refund
 
