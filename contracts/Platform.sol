@@ -336,7 +336,7 @@ contract Platform {
      * param eventId    id of event
      */
     function endUnsuccessfulEvent (uint256 eventId) public {
-        require(owner == msg.sender, "Only platform can call this function");
+        require(owner == msg.sender, "Only owner can call this function");
 
         uint256 firstTicketId = eventContract.getEventFirstTicketId(eventId);
         uint256 capacity = eventContract.getEventCapacity(eventId);

@@ -4,7 +4,7 @@
 
 | Member Name | Admin Number |
 | ---|---|
-| Han Jun Ding | |
+| Han Jun Ding | A0221230E |
 | Sean Phang | |
 | Tan Teck Hwee | |
 | Teo Chin Kai Remus| A0217148E |
@@ -67,6 +67,12 @@ The main capabilities of `Platform.sol` is to:
 
 #### Selling tickets
 
+#### Commence Bidding
+Commence bidding function changes the event bid state to “bidding”, allowing buyers to start bidding for the ticket. Only the original organiser is allowed to commence bidding and bid state must be “initial” when this function is called, after which bid state will be changed to “bidding”.
+```
+eventContract.setEventState(eventId, Event.eventState.bidding);
+```
+
 #### Ticket bidding
 Tickets will be available for bidding when the seller commences the start of the bidding phase. In this bidding phase, buyers will be able to place bids for an event by specifying the eventId, quantity, tokenBid parameters.  
 
@@ -107,6 +113,17 @@ PlatformContract.closeBidding(0)
 ```  
 
 #### Buying tickets
+The buyTickets function is to allow buyers to buy the remaining, available (unsold or refunded) tickets after the bidding session has closed. 
+
+```
+PlatformContract.buyTickets(uint256 eventId, uint8 quantity)
+```
+
+The following conditions must be met for a buyer to successfully buy tickets to an event:
+1. Event must be a valid and ongoing, with bid state set as “buyAndRefund”
+2. Buyers can buy a minimum of 1 ticket, and up to a maximum of 4 tickets. This is to prevent scalpers from bulk buying event tickets and reselling at a higher price.
+3. Buyers can only buy tickets if there are still tickets available for sale.
+4. Buyer has sufficient ether to buy the desired amount of tickets
 
 #### Ticket refund
 
@@ -157,5 +174,33 @@ An example scenario of the validation process will be as follows:
 The team understand that this solution is not a full-proof solution to the oracle problem. This is due to `Account.sol` being a single point of failure and an account is also certified by only one certifier without any cross-checking.
 
 Improvements to this implementation would be implementing ASTRAEA with voting and certifying process. This involves multiple stakeholders in the validation process and ensures that the entire voting process is fair. Stakeholders will also be incentivised or penalised depending on their validation result and whether they are a voter or certifer. However, this idea would be pushed for future developments due to time constraints.
+
+#### Listing events
+To list an event, the organiser has to specify the venue year, month, day, hour, minute, second, capacity, its address and ticket price details of the event to be held. 
+```
+PlatformContract.listEvent(string memory title,
+        string memory venue,
+        uint256 year, uint256 month, uint256 day, uint256 hour, uint256 minute, uint256 second,
+        uint256 capacity,
+        uint256 priceOfTicket,
+        address seller)
+```
+Only a verified accounts can act as an organiser and list events on the platform. Organiser has to also make a deposit of half the total ticket sales (capacity * priceOfTicket / 2) to list an event. This is to prevent the organiser from irresponsibly creating and cancelling an event. 
+
+The event details will then be passed to the event contract for the creation of the actual event object. Event tickets will also be generated and mapped to the newly created eventId.
+
+### Event end
+For simplicity of this project, the team only considered 2 possible ending outcomes for an event:
+1. Successful event 
+
+    For an event outcome to be considered 'successful', the actual event must have occured/ carried out successfully. After which, the seller is able to call *sellerEndEvent(uint256 eventId)* function. This function changes the event state to "sellerEventEnd" and informs the contract owner that event has ended successfully. Contract owner can then call *endSuccessfulEvent(uint256 eventId)* function to release the ticket sales and deposits to the seller. 
+
+2. Failed event
+
+    For an event outcome to be considered 'failed', the actual event did not take place. This can be due to organiser disappearing or running away before the actual event. In such scenario, contract owner can then call the *endUnsuccessfulEvent(uint256 eventId)*. This function refunds ETH to the buyers, who participated in the bidding and buying of tickets, accordingly. The deposits from the organiser will be kept by the platform as a form of penalty.
+
+The purpose of the above methods is to prevent organisers from being irresponsible and scamming buyers through the "fake" event. Ticket sales and deposits will be managed by the platform and only released to the organiser after event ended successfully. 
+
+Note: It is assumed here that the contract owner will be honest in verifying the actual event outcome and calling the appropriate ending function.
 
 ### Tokenomics
