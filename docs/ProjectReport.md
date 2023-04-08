@@ -193,9 +193,9 @@ For simplicity of this project, the team only considered 2 possible ending outco
 
     For an event outcome to be considered 'successful', the actual event must have occured/ carried out successfully. After which, the seller is able to call *sellerEndEvent(uint256 eventId)* function. This function changes the event state to "sellerEventEnd" and informs the contract owner that event has ended successfully. Contract owner can then call *endSuccessfulEvent(uint256 eventId)* function to release the ticket sales and deposits to the seller. 
 
-2. Failed event
+2. Unsuccessful event
 
-    For an event outcome to be considered 'failed', the actual event did not take place. This can be due to organiser disappearing or running away before the actual event. In such scenario, contract owner can then call the *endUnsuccessfulEvent(uint256 eventId)*. This function refunds ETH to the buyers, who participated in the bidding and buying of tickets, accordingly. The deposits from the organiser will be kept by the platform as a form of penalty.
+    For an event outcome to be considered 'unsuccessful', the actual event did not take place. This can be due to organiser disappearing or running away before the actual event. In such scenario, contract owner can then call the *endUnsuccessfulEvent(uint256 eventId)*. This function refunds ETH to the buyers, who participated in the bidding and buying of tickets, accordingly. The deposits from the organiser will be kept by the platform as a form of penalty.
 
 The purpose of the above methods is to prevent organisers from being irresponsible and scamming buyers through the "fake" event. Ticket sales and deposits will be managed by the platform and only released to the organiser after event ended successfully. 
 
