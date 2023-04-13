@@ -1,4 +1,4 @@
-# Architecture & Design document
+# Architecture & Design Documentation
 
 ## Link to GitHub Code
 [https://github.com/AY2223-IS4302-G18/is4302-project](https://github.com/AY2223-IS4302-G18/is4302-project)
@@ -339,7 +339,7 @@ The following conditions must be met for a buyer to successfully refund tickets 
 1. The event must be an ongoing valid event with the event state of “buyAndRefund”
 2. The refunded ticket has to have already been transferred to the platform
 
-If these conditions are met, the ticket will be returned to the platform and the refunding user will be returned eth equivalent to half of the ticket purchase price.
+If these conditions are met, the ticket will be returned to the platform and the refunding user will be returned ETH equivalent to half of the ticket purchase price.
 
 Example (Refunding ticket with ticketId of 5):
 
